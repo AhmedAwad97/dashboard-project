@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/framework.css" />
+    <link rel="stylesheet" href="css/master.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="page files d-flex">
+      <!--Start Side Bar-->
+      <aside class="pad-20">
+        <h3 class="p-relative txt-c">Ahmed</h3>
+        <ul class="links">
+          <li>
+            <a href="index.html" class="rad-6 pad-10 d-flex align-c">
+              <i class="fa-solid fa-gauge"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="settings.html" class="rad-6 pad-10 d-flex align-c">
+              <i class="fa-solid fa-gear"></i>
+              <span>Settings</span>
+            </a>
+          </li>
+          <li>
+            <a href="profile.html" class="rad-6 pad-10 d-flex align-c">
+              <i class="fa-regular fa-user"></i>
+              <span>Profile</span>
+            </a>
+          </li>
+          <li>
+            <a href="projects.html" class="rad-6 pad-10 d-flex align-c">
+              <i class="fa-solid fa-diagram-project"></i>
+              <span>Projects</span>
+            </a>
+          </li>
+          <li>
+            <a href="courses.html" class="rad-6 pad-10 d-flex align-c">
+              <i class="fa-solid fa-graduation-cap"></i>
+              <span>Courses</span>
+            </a>
+          </li>
+          <li>
+            <a href="friends.html" class="rad-6 pad-10 d-flex align-c">
+              <i class="fa-solid fa-user-group"></i>
+              <span>Friends</span>
+            </a>
+          </li>
+          <li>
+            <a href="files.html" class="active rad-6 pad-10 d-flex align-c">
+              <i class="fa-regular fa-file"></i>
+              <span>Files</span>
+            </a>
+          </li>
+          <li>
+            <a href="plans.html" class="rad-6 pad-10 d-flex align-c">
+              <i class="fa-solid fa-credit-card"></i>
+              <span>Plans</span>
+            </a>
+          </li>
+          <li>
+            <a href="contact.html" class="rad-6 pad-10 d-flex align-c">
+              <i class="fa-regular fa-pen-to-square"></i>
+              <span>Contact Form</span>
+            </a>
+          </li>
+          <li>
+            <a href="crud.html" class="rad-6 pad-10 d-flex align-c">
+              <i class="fa-solid fa-plus"></i>
+              <span>CRUD</span>
+            </a>
+          </li>
+        </ul>
+      </aside>
+      <!--End Side Bar-->
+
+      <!--Start Content-->
+
+      <div class="content full-width">
+        <header class="pad-15 flex-between">
+          <div class="search p-relative">
+            <input type="search" placeholder="Type A Keyword" class="pad-10" />
+          </div>
+          <div class="icons felx-center">
+            <span class="notification notificationIcon p-relative">
+              <i class="fa-regular fa-bell p-relative"></i>
+            </span>
+            <img src="img/avatar.jpg" alt="" class="rad-half" id="profilePic" />
+          </div>
+          <ul class="profileContent">
+            <li>
+              <a href="profile.html" class="d-block c-black fs-14 mb-15"
+                ><i class="fa-regular fa-user mr-5"></i>
+                <span>View Profile</span></a
+              >
+            </li>
+            <li>
+              <a href="settings.html" class="d-block c-black fs-14 mb-15"
+                ><i class="fa-solid fa-gear mr-5"></i> <span>Settings</span></a
+              >
+            </li>
+            <li>
+              <a href="#" class="d-block c-black fs-14 mb-15"
+                ><i class="fa-solid fa-power-off mr-5"></i
+                ><span>Log Out</span></a
+              >
+            </li>
+          </ul>
+
+          <ul class="notificationContent">
+            <li>
+              <a href="#" class="d-block c-black fs-14 mb-15"
+                ><i class="fa-solid fa-coins mr-5"></i>
+                <span>500€ has been added to your wallet</span></a
+              >
+            </li>
+            <li>
+              <a href="profile.html" class="d-block c-black fs-14 mb-15"
+                ><i class="fa-solid fa-envelope mr-5"></i>
+                <span>You have 5 new messages</span></a
+              >
+            </li>
+          </ul>
+        </header>
+
+        <h1 class="p-relative">Files</h1>
+
+        <div class="container d-flex m-20 gap-20">
+          <div class="cards-200 d-grid gap-20">
+            <!--Start Card-->
+            <div class="card bg-white p-relative rad-10 pad-20">
+              <a href="#">
+                <i class="fa-solid fa-download fs-16 c-grey"></i>
+              </a>
+              <header>
+                <div class="txt-c">
+                  <img src="img/pdf.svg" alt="pdf" />
+                  <p class="fs-16 d-block mt-15 mb-10">my-file.pdf</p>
+                </div>
+                <span class="c-grey fs-12 d-block mb-10">Ahmed</span>
+              </header>
+              <footer class="mt-15 fs-12 c-grey flex-between align-c">
+                <span>20/06/2020</span>
+                <span>5.5MB</span>
+              </footer>
+            </div>
+            <!--End Card-->
+            <!--Start Card-->
+            <div class="card bg-white p-relative rad-10 pad-20">
+              <a href="#">
+                <i class="fa-solid fa-download fs-16 c-grey"></i>
+              </a>
+              <header>
+                <div class="txt-c">
+                  <img src="img/avi.svg" alt="avi" />
+                  <p class="fs-16 d-block mt-15 mb-10">my-file.avi</p>
+                </div>
+                <span class="c-grey fs-12 d-block mb-10">Admin</span>
+              </header>
+              <footer class="mt-15 fs-12 c-grey flex-between align-c">
+                <span>20/06/2023</span>
+                <span>3.5MB</span>
+              </footer>
+            </div>
+            <!--End Card-->
+            <!--Start Card-->
+            <div class="card bg-white p-relative rad-10 pad-20">
+              <a href="#">
+                <i class="fa-solid fa-download fs-16 c-grey"></i>
+              </a>
+              <header>
+                <div class="txt-c">
+                  <img src="img/zip.svg" alt="zip" />
+                  <p class="fs-16 d-block mt-15 mb-10">my-file.zip</p>
+                </div>
+                <span class="c-grey fs-12 d-block mb-10">Admin</span>
+              </header>
+              <footer class="mt-15 fs-12 c-grey flex-between align-c">
+                <span>20/12/2023</span>
+                <span>2.8MB</span>
+              </footer>
+            </div>
+            <!--End Card-->
+            <!--Start Card-->
+            <div class="card bg-white p-relative rad-10 pad-20">
+              <a href="#">
+                <i class="fa-solid fa-download fs-16 c-grey"></i>
+              </a>
+              <header>
+                <div class="txt-c">
+                  <img src="img/eps.svg" alt="eps" />
+                  <p class="fs-16 d-block mt-15 mb-10">my-file.eps</p>
+                </div>
+                <span class="c-grey fs-12 d-block mb-10">Ahmed</span>
+              </header>
+              <footer class="mt-15 fs-12 c-grey flex-between align-c">
+                <span>11/06/2023</span>
+                <span>2.8MB</span>
+              </footer>
+            </div>
+            <!--End Card-->
+            <!--Start Card-->
+            <div class="card bg-white p-relative rad-10 pad-20">
+              <a href="#">
+                <i class="fa-solid fa-download fs-16 c-grey"></i>
+              </a>
+              <header>
+                <div class="txt-c">
+                  <img src="img/psd.svg" alt="psd" />
+                  <p class="fs-16 d-block mt-15 mb-10">my-file.psd</p>
+                </div>
+                <span class="c-grey fs-12 d-block mb-10">Ahmed</span>
+              </header>
+              <footer class="mt-15 fs-12 c-grey flex-between align-c">
+                <span>11/06/2023</span>
+                <span>2.8MB</span>
+              </footer>
+            </div>
+            <!--End Card-->
+            <!--Start Card-->
+            <div class="card bg-white p-relative rad-10 pad-20">
+              <a href="#">
+                <i class="fa-solid fa-download fs-16 c-grey"></i>
+              </a>
+              <header>
+                <div class="txt-c">
+                  <img src="img/dll.svg" alt="psd" />
+                  <p class="fs-16 d-block mt-15 mb-10">my-file.dll</p>
+                </div>
+                <span class="c-grey fs-12 d-block mb-10">Ahmed</span>
+              </header>
+              <footer class="mt-15 fs-12 c-grey flex-between align-c">
+                <span>11/06/2023</span>
+                <span>2.8MB</span>
+              </footer>
+            </div>
+            <!--End Card-->
+            <!--Start Card-->
+            <div class="card bg-white p-relative rad-10 pad-20">
+              <a href="#">
+                <i class="fa-solid fa-download fs-16 c-grey"></i>
+              </a>
+              <header>
+                <div class="txt-c">
+                  <img src="img/pdf.svg" alt="pdf" />
+                  <p class="fs-16 d-block mt-15 mb-10">my-file.pdf</p>
+                </div>
+                <span class="c-grey fs-12 d-block mb-10">Ahmed</span>
+              </header>
+              <footer class="mt-15 fs-12 c-grey flex-between align-c">
+                <span>20/06/2020</span>
+                <span>5.5MB</span>
+              </footer>
+            </div>
+            <!--End Card-->
+            <!--Start Card-->
+            <div class="card bg-white p-relative rad-10 pad-20">
+              <a href="#">
+                <i class="fa-solid fa-download fs-16 c-grey"></i>
+              </a>
+              <header>
+                <div class="txt-c">
+                  <img src="img/eps.svg" alt="eps" />
+                  <p class="fs-16 d-block mt-15 mb-10">my-file.eps</p>
+                </div>
+                <span class="c-grey fs-12 d-block mb-10">Ahmed</span>
+              </header>
+              <footer class="mt-15 fs-12 c-grey flex-between align-c">
+                <span>11/06/2023</span>
+                <span>2.8MB</span>
+              </footer>
+            </div>
+            <!--End Card-->
+          </div>
+          <!--End Cards-->
+
+          <!--Start File Statistics-->
+          <div class="file-statistics bg-white rad-6 pad-20">
+            <h2 class="fs-14 mb-20">Files Statistics</h2>
+            <div class="row pdf flex-between align-c pad-10 rad-6">
+              <i class="fa-regular fa-file-pdf"></i>
+              <div class="info">
+                <span class="d-block">DPF Files</span>
+                <span class="d-block c-grey">130</span>
+              </div>
+              <span class="c-grey">6.5GB</span>
+            </div>
+
+            <div class="row images flex-between align-c pad-10 rad-6">
+              <i class="fa-regular fa-image"></i>
+              <div class="info">
+                <span class="d-block">Images</span>
+                <span class="d-block c-grey">12</span>
+              </div>
+              <span class="c-grey">25MB</span>
+            </div>
+
+            <div class="row word flex-between align-c pad-10 rad-6">
+              <i class="fa-regular fa-file-word"></i>
+              <div class="info">
+                <span class="d-block">Word Files</span>
+                <span class="d-block c-grey">12</span>
+              </div>
+              <span class="c-grey">25MB</span>
+            </div>
+
+            <div class="row csv flex-between align-c pad-10 rad-6">
+              <i class="fa-solid fa-file-csv"></i>
+              <div class="info">
+                <span class="d-block">CSV Files</span>
+                <span class="d-block c-grey">45</span>
+              </div>
+              <span class="c-grey">255MB</span>
+            </div>
+            <a href="#" class="btn-shape bg-blue c-white rad-6 fs-14">
+              <i class="fa-solid fa-angles-up mr-10"></i>
+              Upload
+            </a>
+          </div>
+          <!--End File Statistics-->
+        </div>
+      </div>
+      <!--End Content-->
+    </div>
+    <script src="JS/main.js"></script>
+  </body>
+</html>
