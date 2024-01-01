@@ -1710,6 +1710,9 @@ aside ul a span {
 /*End contact page*/
 
 /*Start of Crud Page*/
+.crud-page .content {
+  overflow-x: hidden;
+}
 .crud {
   width: 80%;
   margin: auto;
@@ -1761,7 +1764,7 @@ aside ul a span {
 
 @media screen and (max-width: 991px) {
   .crud-page h1 {
-    font-size: 20px;
+    font-size: 18px;
   }
   .crud .prices {
     display: flex;
@@ -1778,6 +1781,9 @@ aside ul a span {
     display: block;
   }
 
+  .crud .outputs {
+    overflow-x: hidden;
+  }
   .crud .outputs button {
     width: 100%;
     margin-top: 10px;
