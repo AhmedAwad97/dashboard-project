@@ -42,13 +42,34 @@ deleteIcon.forEach((element) => {
 /**
  * Save history of the form in the quick draft section to the latest task section
  */
+
 let draftForm = document.querySelector(".quick-draft form");
 let tasksSection = document.querySelector(".tasks");
 const submissions = JSON.parse(localStorage.getItem("formSubmissions")) || [];
 
+draftForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const formData = new FormData(this);
+  saveSubmission(formData);
+  // Save the submission in the localStorage
+  submissions.push(Object.fromEntries(formData));
+  localStorage.setItem("formSubmissions", JSON.stringify(submissions));
+  // Clear the form
+  this.reset();
+});
+
+// Display existing submissions on page load
+submissions.forEach((submission) => {
+  const formData = new FormData();
+  Object.entries(submission).forEach(([key, value]) => {
+    formData.append(key, value);
+  });
+  saveSubmission(formData); //this add all submission data on local storage when refresh the page
+});
+///////////////////////////////////
+
 function saveSubmission(formData) {
   const submission = Object.fromEntries(formData);
-
   // Create HTML elements for the submission
   const submissionDiv = document.createElement("div");
   submissionDiv.classList.add(
@@ -71,58 +92,30 @@ function saveSubmission(formData) {
   thoughtParagraph.textContent = submission.content;
   const deleteIcon = document.createElement("a");
   deleteIcon.href = "#";
-  deleteIcon.onclick = (event) => {
-    event.preventDefault();
-    deleteIcon.parentElement.style.display = "none";
-  };
   deleteIcon.innerHTML = '<i class="fa-regular fa-trash-can fs-20"></i>'; // Use "×" for a delete icon
   deleteIcon.classList.add("delete-icon");
-  deleteIcon.addEventListener("click", function () {
-    // Handle delete functionality
-    // For example, remove the submission from the localStorage and the DOM
-    const index = submissions.indexOf(submission);
-    if (index !== -1) {
-      submissions.splice(index, 1);
-      localStorage.setItem("formSubmissions", JSON.stringify(submissions));
-      submissionDiv.remove();
-    }
-  });
-
   // Append elements to submissionDiv
   submissionDiv.appendChild(infoDiv);
   submissionDiv.appendChild(deleteIcon);
   infoDiv.appendChild(titleHeading);
   infoDiv.appendChild(thoughtParagraph);
-
   // Append submissionDiv to tasksSection
   tasksSection.appendChild(submissionDiv);
+  handleDeleteIcon(deleteIcon, submissionDiv, submission);
 }
 
-draftForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-  const formData = new FormData(this);
-  saveSubmission(formData);
-
-  // Save the submission in the localStorage
-  submissions.push(Object.fromEntries(formData));
-  localStorage.setItem("formSubmissions", JSON.stringify(submissions));
-
-  // Clear the form
-  this.reset();
-});
-
-// Display existing submissions on page load
-submissions.forEach((submission) => {
-  const formData = new FormData();
-  Object.entries(submission).forEach(([key, value]) => {
-    formData.append(key, value);
+//handle the delete icon
+function handleDeleteIcon(deleteIcon, submissionDiv, submission) {
+  deleteIcon.addEventListener("click", function (event) {
+    event.preventDefault();
+    // deleteIcon.parentElement.style.display = "none";
+    // remove the submission from the localStorage and the DOM
+    const index = submissions.indexOf(submission);
+    submissions.splice(index, 1);
+    localStorage.setItem("formSubmissions", JSON.stringify(submissions));
+    submissionDiv.remove();
   });
-  saveSubmission(formData);
-});
-
-/*
-Save history of the form to the latest task section  
-*/
+}
 /*Latest task section*/
 
 /*Latest Post Section*/

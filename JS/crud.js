@@ -32,7 +32,7 @@ function updateTotal() {
     total.innerHTML = `${totalPrice.toFixed(2)}`;
     total.style.backgroundColor = "green";
   } else {
-    total.innerHTML = ``;
+    total.innerHTML = `Total:`;
     total.style.backgroundColor = "red";
   }
 }
@@ -62,7 +62,7 @@ function submitClickHandler() {
     isUpdateMode = false;
     clearData();
   } else {
-    if (title.value != "" && (price.value != "") & (category.value != "")) {
+    if (title.value != "" && price.value != "" && category.value != "") {
       let newProduct = {
         title: title.value,
         price: price.value,

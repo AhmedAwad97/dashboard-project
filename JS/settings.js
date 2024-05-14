@@ -52,7 +52,6 @@ savePassBtn.addEventListener("click", (event) => {
 /*End Security info section*/
 
 /*Start Dark mode*/
-// let darkMode = document.querySelector(".dark-mode");
 let darkModeBtn = document.querySelector(".dark-mode-btn");
 let darkModeCheckBox = document.querySelector(".dark-mode input");
 let pageSite = document.querySelector(".page");
