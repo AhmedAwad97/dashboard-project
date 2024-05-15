@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/framework.css" />
+    <link rel="stylesheet" href="css/master.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="page crud-page d-flex">
+      <!--Start Side Bar-->
+      <aside class="pad-20">
+        <h3 class="p-relative txt-c">Ahmed</h3>
+        <ul class="links">
+          <li>
+            <a href="index.html" class="rad-6 pad-10 d-flex align-c">
+              <i class="fa-solid fa-gauge"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="settings.html" class="rad-6 pad-10 d-flex align-c">
+              <i class="fa-solid fa-gear"></i>
+              <span>Settings</span>
+            </a>
+          </li>
+          <li>
+            <a href="profile.html" class="rad-6 pad-10 d-flex align-c">
+              <i class="fa-regular fa-user"></i>
+              <span>Profile</span>
+            </a>
+          </li>
+          <li>
+            <a href="projects.html" class="rad-6 pad-10 d-flex align-c">
+              <i class="fa-solid fa-diagram-project"></i>
+              <span>Projects</span>
+            </a>
+          </li>
+          <li>
+            <a href="courses.html" class="rad-6 pad-10 d-flex align-c">
+              <i class="fa-solid fa-graduation-cap"></i>
+              <span>Courses</span>
+            </a>
+          </li>
+          <li>
+            <a href="friends.html" class="rad-6 pad-10 d-flex align-c">
+              <i class="fa-solid fa-user-group"></i>
+              <span>Friends</span>
+            </a>
+          </li>
+          <li>
+            <a href="files.html" class="rad-6 pad-10 d-flex align-c">
+              <i class="fa-regular fa-file"></i>
+              <span>Files</span>
+            </a>
+          </li>
+          <li>
+            <a href="plans.html" class="rad-6 pad-10 d-flex align-c">
+              <i class="fa-solid fa-credit-card"></i>
+              <span>Plans</span>
+            </a>
+          </li>
+          <li>
+            <a href="contact.html" class="rad-6 pad-10 d-flex align-c">
+              <i class="fa-regular fa-pen-to-square"></i>
+              <span>Contact Form</span>
+            </a>
+          </li>
+          <li>
+            <a href="crud.html" class="active rad-6 pad-10 d-flex align-c">
+              <i class="fa-solid fa-plus"></i>
+              <span>CRUD</span>
+            </a>
+          </li>
+        </ul>
+      </aside>
+      <!--End Side Bar-->
+
+      <!--Start Content-->
+
+      <div class="content full-width p-relative">
+        <header class="pad-15 flex-between">
+          <div class="search p-relative">
+            <input type="search" placeholder="Type A Keyword" class="pad-10" />
+          </div>
+          <div class="icons felx-center">
+            <span class="notification notificationIcon p-relative">
+              <i class="fa-regular fa-bell p-relative"></i>
+            </span>
+            <img src="img/avatar.jpg" alt="" class="rad-half" id="profilePic" />
+          </div>
+          <ul class="profileContent">
+            <li>
+              <a href="profile.html" class="d-block c-black fs-14 mb-15"
+                ><i class="fa-regular fa-user mr-5"></i>
+                <span>View Profile</span></a
+              >
+            </li>
+            <li>
+              <a href="settings.html" class="d-block c-black fs-14 mb-15"
+                ><i class="fa-solid fa-gear mr-5"></i> <span>Settings</span></a
+              >
+            </li>
+            <li>
+              <a href="#" class="d-block c-black fs-14 mb-15"
+                ><i class="fa-solid fa-power-off mr-5"></i
+                ><span>Log Out</span></a
+              >
+            </li>
+          </ul>
+
+          <ul class="notificationContent">
+            <li>
+              <a href="#" class="d-block c-black fs-14 mb-15"
+                ><i class="fa-solid fa-coins mr-5"></i>
+                <span>500€ has been added to your wallet</span></a
+              >
+            </li>
+            <li>
+              <a href="profile.html" class="d-block c-black fs-14 mb-15"
+                ><i class="fa-solid fa-envelope mr-5"></i>
+                <span>You have 5 new messages</span></a
+              >
+            </li>
+          </ul>
+        </header>
+
+        <h1 class="p-relative">CRUD Managment System</h1>
+
+        <!--Start of Crud Div-->
+        <div class="crud">
+          <div class="inputs">
+            <input
+              type="text"
+              placeholder="Title"
+              id="title"
+              class="full-width rad-6"
+            />
+
+            <div class="prices mt-15">
+              <input
+                type="number"
+                placeholder="Price"
+                id="price"
+                class="rad-6 mt-5"
+              />
+              <input
+                type="number"
+                placeholder="Taxes"
+                id="taxes"
+                class="rad-6 mt-5"
+              />
+              <input
+                type="number"
+                placeholder="Ads"
+                id="ads"
+                class="rad-6 mt-5"
+              />
+              <input
+                type="number"
+                placeholder="Discount"
+                id="discount"
+                class="rad-6 mr-10 mt-5"
+              />
+              <small class="c-white bg-red rad-6 pad-5 total fs-14"
+                >Total:
+              </small>
+            </div>
+
+            <input
+              type="number"
+              placeholder="Count"
+              id="count"
+              class="full-width mt-10 rad-6"
+            />
+
+            <input
+              type="text"
+              placeholder="Category"
+              id="category"
+              class="full-width mt-10 rad-6"
+            />
+
+            <div class="button flex-end">
+              <button id="submit" type="submit" class="btn btn-pad mt-10">
+                Submit
+              </button>
+            </div>
+          </div>
+
+          <div class="outputs">
+            <div class="search">
+              <input
+                onkeyup="searchData(this.value)"
+                type="search"
+                placeholder="Search"
+                class="full-width mt-10 rad-6 search-products"
+              />
+              <div class="mt-10 flex-end search-btns">
+                <button class="btn btn-pad search-title bg-purple mr-10">
+                  Search By Title
+                </button>
+                <button class="btn btn-pad search-category bg-purple">
+                  Search By Category
+                </button>
+              </div>
+            </div>
+            <div>
+              <button class="btn bg-red full-width mt-15 deleteAll"></button>
+            </div>
+
+            <div class="responsive-table">
+              <table class="mt-15 txt-c">
+                <thead>
+                  <tr>
+                    <td>ID</td>
+                    <td>Title</td>
+                    <td>Price</td>
+                    <td>ADS</td>
+                    <td>Taxes</td>
+                    <td>Discount</td>
+                    <td>Total</td>
+                    <td>Count</td>
+                    <td>Category</td>
+                    <td>Update</td>
+                    <td>Delete</td>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!--End of Crud Div-->
+      </div>
+      <!--End Content-->
+    </div>
+    <script src="JS/main.js"></script>
+    <script src="JS/crud.js"></script>
+  </body>
+</html>
