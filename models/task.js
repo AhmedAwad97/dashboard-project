@@ -1,6 +1,4 @@
-const { Timestamp } = require("bson");
 const mongoose = require("mongoose");
-const { type } = require("os");
 const Schema = mongoose.Schema;
 
 const taskSchema = new Schema(
@@ -9,8 +7,8 @@ const taskSchema = new Schema(
       type: String,
       required: true,
     },
-    paragraph: {
-      type: string,
+    content: {
+      type: String,
       required: true,
     },
   },

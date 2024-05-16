@@ -99,13 +99,13 @@
           </div>
           <ul class="profileContent">
             <li>
-              <a href="profile.html" class="d-block c-black fs-14 mb-15"
+              <a href="/profile" class="d-block c-black fs-14 mb-15"
                 ><i class="fa-regular fa-user mr-5"></i>
                 <span>View Profile</span></a
               >
             </li>
             <li>
-              <a href="settings.html" class="d-block c-black fs-14 mb-15"
+              <a href="/settings" class="d-block c-black fs-14 mb-15"
                 ><i class="fa-solid fa-gear mr-5"></i> <span>Settings</span></a
               >
             </li>
@@ -125,7 +125,7 @@
               >
             </li>
             <li>
-              <a href="profile.html" class="d-block c-black fs-14 mb-15"
+              <a href="/profile" class="d-block c-black fs-14 mb-15"
                 ><i class="fa-solid fa-envelope mr-5"></i>
                 <span>You have 5 new messages</span></a
               >
@@ -162,10 +162,7 @@
               </div>
             </div>
             <div class="footer pad-20">
-              <a
-                href="profile.html"
-                class="bg-blue c-white btn-pad fs-14"
-                target="_blank"
+              <a href="/profile" class="bg-blue c-white btn-pad fs-14"
                 >Profile</a
               >
             </div>
@@ -181,7 +178,7 @@
               </div>
             </div>
             <div class="body pad-20">
-              <form action="dashboard" method="post">
+              <form action="/dashboard" method="post">
                 <input
                   type="text"
                   placeholder="Title"
@@ -265,6 +262,17 @@
                 <i class="fa-regular fa-trash-can fs-20"></i>
               </a>
             </div>
+            <% if(tasks.length > 0) { %> <% tasks.forEach((task) => { %>
+            <div class="tasks-row d-flex align-c gap-20 mt-20">
+              <div class="info">
+                <h3 class="fs-16"><%= task.title %></h3>
+                <p class="c-grey fs-14 mt-5"><%= task.content %></p>
+              </div>
+              <a href="#" class="delete" data-doc="<%= task._id %>">
+                <i class="fa-regular fa-trash-can fs-20"></i>
+              </a>
+            </div>
+            <% }) %> <% } %>
           </div>
           <!--End Tasks-->
 

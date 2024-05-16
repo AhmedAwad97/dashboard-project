@@ -1,14 +1,15 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
+const mongoose = require("mongoose");
 const dashboardRouter = require("./Routes/dashboard/dashboardRouter");
+
 const app = express();
 app.use(bodyParser.json());
 
 //connect to db
 const dbURI =
-  "mongodb+srv://awad55397:ahmedaw97@dashboard.ej1kdqa.mongodb.net/?retryWrites=true&w=majority&appName=dashboard";
+  "mongodb+srv://awad55397:ahmedaw97@dashboard.ej1kdqa.mongodb.net/dashboard?retryWrites=true&w=majority&appName=dashboard";
 
 mongoose
   .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -21,8 +22,9 @@ mongoose
 
 //register view engine
 app.set("view engine", "ejs");
-app.use(express.static("public"));
-app.use(morgan("tiny"));
+app.use(express.static("public")); // let the css,js,media to be accessed by views files
+app.use(bodyParser.urlencoded({ extended: true })); //middleware for getting the url body sent by form
+app.use(morgan("tiny")); //for logging
 
 app.get("/", (req, res) => {
   res.redirect("dashboard");
