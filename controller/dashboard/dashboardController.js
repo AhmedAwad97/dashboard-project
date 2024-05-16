@@ -1,4 +1,5 @@
 const Task = require("../../models/task");
+const Comment = require("../../models/comment");
 
 const dashboardIndex = (req, res) => {
   Task.find()
@@ -10,9 +11,19 @@ const dashboardIndex = (req, res) => {
     });
 };
 
-const dashboard_creat_post = (req, res) => {
+const dashboard_task_post = (req, res) => {
   const task = new Task(req.body);
   task
+    .save()
+    .then((result) => res.redirect("/dashboard"))
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+const dashboard_comment_post = (req, res) => {
+  const comment = new Comment(req.body);
+  comment
     .save()
     .then((result) => res.redirect("/dashboard"))
     .catch((err) => {
@@ -24,7 +35,7 @@ const task_delete = (req, res) => {
   const id = req.params.id;
   Task.findByIdAndDelete(id)
     .then((result) => {
-      res.json({ redirect: "/dashboard" });
+      res.json({ redirect: "/" });
     })
     .catch((err) => {
       console.log(err);
@@ -33,6 +44,7 @@ const task_delete = (req, res) => {
 
 module.exports = {
   dashboardIndex,
-  dashboard_creat_post,
+  dashboard_task_post,
+  dashboard_comment_post,
   task_delete,
 };

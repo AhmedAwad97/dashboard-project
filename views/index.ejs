@@ -178,7 +178,7 @@
               </div>
             </div>
             <div class="body pad-20">
-              <form action="/dashboard" method="post">
+              <form action="/dashboard/tasks" method="post">
                 <input
                   type="text"
                   placeholder="Title"
@@ -212,7 +212,7 @@
                   Record Python Create Exe Project
                 </p>
               </div>
-              <a href="#" onclick="event.preventDefault()">
+              <a href="/">
                 <i class="fa-regular fa-trash-can fs-20"></i>
               </a>
             </div>
@@ -224,7 +224,7 @@
                   Write Low Level vs High Level Languages
                 </p>
               </div>
-              <a href="#" onclick="event.preventDefault()">
+              <a href="#">
                 <i class="fa-regular fa-trash-can fs-20"></i>
               </a>
             </div>
@@ -236,7 +236,7 @@
                   Publish Academy Programming Project
                 </p>
               </div>
-              <a href="#" onclick="event.preventDefault()">
+              <a href="#">
                 <i class="fa-regular fa-trash-can fs-20"></i>
               </a>
             </div>
@@ -248,7 +248,7 @@
                   Attend The Project Business Analysis Meeting
                 </p>
               </div>
-              <a href="#" onclick="event.preventDefault()">
+              <a href="#">
                 <i class="fa-regular fa-trash-can fs-20"></i>
               </a>
             </div>
@@ -258,7 +258,7 @@
                 <h3 class="fs-16">Finish Lesson</h3>
                 <p class="c-grey fs-14 mt-5">Finish Teaching Flex Box</p>
               </div>
-              <a href="#" onclick="event.preventDefault()">
+              <a href="#">
                 <i class="fa-regular fa-trash-can fs-20"></i>
               </a>
             </div>
@@ -653,13 +653,20 @@
               </div>
             </div>
             <div class="comment-section mt-15">
-              <div class="full-width felx-center">
+              <form
+                action="/dashboard/comments"
+                method="post"
+                class="full-width felx-center"
+              >
                 <input
                   type="text"
                   class="rad-10 full-width pad-10 c-grey mr-15"
+                  name="content"
                 />
-                <button class="btn-shape rad-6 bg-blue c-white">Comment</button>
-              </div>
+                <button type="submit" class="btn-shape rad-6 bg-blue c-white">
+                  Comment
+                </button>
+              </form>
             </div>
             <!--Pop up window, appears when the comment button clicked-->
             <div class="pop-up">

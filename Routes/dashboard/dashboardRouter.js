@@ -3,6 +3,7 @@ const router = express.Router();
 const dashboardController = require("../../controller/dashboard/dashboardController");
 
 router.get("/", dashboardController.dashboardIndex);
-router.post("/", dashboardController.dashboard_creat_post);
+router.post("/tasks", dashboardController.dashboard_task_post);
+router.post("/comments", dashboardController.dashboard_comment_post);
 router.delete("/:id", dashboardController.task_delete);
 module.exports = router;

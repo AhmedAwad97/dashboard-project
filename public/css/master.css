@@ -667,7 +667,7 @@ aside ul a span {
 }
 
 .latest-post .comment-section {
-  display: none;
+  /* display: none; */
 }
 .latest-post .comment-section input {
   border: 1px solid #ccc;

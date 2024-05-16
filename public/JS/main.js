@@ -32,106 +32,28 @@ document.body.addEventListener("click", (event) => {
 /**
  * Deleting each row when click on the delete icon
  */
-let deleteIcon = document.querySelectorAll(".tasks-row a");
-deleteIcon.forEach((element) => {
-  element.addEventListener("click", (event) => {
-    event.preventDefault();
-    element.parentElement.style.display = "none";
-  });
-});
-
-const trashcan = document.querySelectorAll(".tasks-row a.delete");
+const trashcan = document.querySelectorAll(".tasks-row a");
 trashcan.forEach((icon) => {
   icon.addEventListener("click", (event) => {
-    const endpoint = `/${icon.dataset.doc}`;
-    fetch(endpoint, { method: "DELETE" })
-      .then((response) => response.json())
-      .then((result) => {
-        window.location.href = result.redirect;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  });
-});
-
-/**
- * Save history of the form in the quick draft section to the latest task section
- */ /*
-
-let draftForm = document.querySelector(".quick-draft form");
-let tasksSection = document.querySelector(".tasks");
-const submissions = JSON.parse(localStorage.getItem("formSubmissions")) || [];
-
-draftForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-  const formData = new FormData(this);
-  saveSubmission(formData);
-  // Save the submission in the localStorage
-  submissions.push(Object.fromEntries(formData));
-  localStorage.setItem("formSubmissions", JSON.stringify(submissions));
-  // Clear the form
-  this.reset();
-});
-
-// Display existing submissions on page load
-submissions.forEach((submission) => {
-  const formData = new FormData();
-  Object.entries(submission).forEach(([key, value]) => {
-    formData.append(key, value);
-  });
-  saveSubmission(formData); //this add all submission data on local storage when refresh the page
-});
-///////////////////////////////////
-
-function saveSubmission(formData) {
-  const submission = Object.fromEntries(formData);
-  // Create HTML elements for the submission
-  const submissionDiv = document.createElement("div");
-  submissionDiv.classList.add(
-    "tasks-row",
-    "d-flex",
-    "align-c",
-    "gap-20",
-    "mt-20"
-  );
-
-  const infoDiv = document.createElement("div");
-  infoDiv.classList.add("info");
-
-  const titleHeading = document.createElement("h3");
-  titleHeading.classList.add("fs-16");
-  titleHeading.textContent = submission.title;
-
-  const thoughtParagraph = document.createElement("p");
-  thoughtParagraph.classList.add("c-grey", "fs-14", "mt-5");
-  thoughtParagraph.textContent = submission.content;
-  const deleteIcon = document.createElement("a");
-  deleteIcon.href = "#";
-  deleteIcon.innerHTML = '<i class="fa-regular fa-trash-can fs-20"></i>'; // Use "×" for a delete icon
-  deleteIcon.classList.add("delete-icon");
-  // Append elements to submissionDiv
-  submissionDiv.appendChild(infoDiv);
-  submissionDiv.appendChild(deleteIcon);
-  infoDiv.appendChild(titleHeading);
-  infoDiv.appendChild(thoughtParagraph);
-  // Append submissionDiv to tasksSection
-  tasksSection.appendChild(submissionDiv);
-  handleDeleteIcon(deleteIcon, submissionDiv, submission);
-}
-
-//handle the delete icon
-function handleDeleteIcon(deleteIcon, submissionDiv, submission) {
-  deleteIcon.addEventListener("click", function (event) {
     event.preventDefault();
-    // deleteIcon.parentElement.style.display = "none";
-    // remove the submission from the localStorage and the DOM
-    const index = submissions.indexOf(submission);
-    submissions.splice(index, 1);
-    localStorage.setItem("formSubmissions", JSON.stringify(submissions));
-    submissionDiv.remove();
+    const taskId = icon.dataset.doc;
+
+    if (taskId) {
+      const endpoint = `/dashboard/${taskId}`;
+      fetch(endpoint, { method: "DELETE" })
+        .then((response) => response.json())
+        .then((result) => {
+          window.location.href = result.redirect;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      icon.parentElement.remove();
+    }
   });
-}*/
+});
+
 /*Latest task section*/
 
 /*Latest Post Section*/
@@ -162,23 +84,23 @@ let commentSection = document.querySelector(".comment-section");
 let commentSectionInput = document.querySelector(".comment-section input");
 let commentSectionBtn = document.querySelector(".comment-section button");
 
-/*Display the comment input to add a comment */
-comment.addEventListener("click", () => {
-  commentSection.style.display = "block";
-});
+// /*Display the comment input to add a comment */
+// comment.addEventListener("click", () => {
+//   commentSection.style.display = "block";
+// });
 
 /*increment the comment counter with each comment added */
-commentSectionBtn.addEventListener("click", () => {
-  if (commentSectionInput.value.trim() === "") {
-    commentSectionInput.placeholder = "You cant comment empty comment";
-    return;
-  }
-  commentCounter++;
-  comment.nextElementSibling.textContent = commentCounter;
-  commentSectionInput.value = "";
-  commentSection.style.display = "none";
-  document.querySelector(".pop-up").style.display = "flex";
-});
+// commentSectionBtn.addEventListener("click", () => {
+//   if (commentSectionInput.value.trim() === "") {
+//     commentSectionInput.placeholder = "You cant comment empty comment";
+//     return;
+//   }
+//   commentCounter++;
+//   comment.nextElementSibling.textContent = commentCounter;
+//   commentSectionInput.value = "";
+//   commentSection.style.display = "none";
+//   document.querySelector(".pop-up").style.display = "flex";
+// });
 
 /*Close the pop-up window*/
 let closeBtn = document.querySelector(".pop-up button");

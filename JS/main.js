@@ -34,14 +34,30 @@ document.body.addEventListener("click", (event) => {
  */
 let deleteIcon = document.querySelectorAll(".tasks-row a");
 deleteIcon.forEach((element) => {
-  element.addEventListener("click", () => {
+  element.addEventListener("click", (event) => {
+    event.preventDefault();
     element.parentElement.style.display = "none";
+  });
+});
+
+const trashcan = document.querySelectorAll(".tasks-row a.delete");
+trashcan.forEach((icon) => {
+  icon.addEventListener("click", (event) => {
+    const endpoint = `/dashboard/${icon.dataset.doc}`;
+    fetch(endpoint, { method: "DELETE" })
+      .then((response) => response.json())
+      .then((result) => {
+        window.location.href = result.redirect;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   });
 });
 
 /**
  * Save history of the form in the quick draft section to the latest task section
- */
+ */ /*
 
 let draftForm = document.querySelector(".quick-draft form");
 let tasksSection = document.querySelector(".tasks");
@@ -115,7 +131,7 @@ function handleDeleteIcon(deleteIcon, submissionDiv, submission) {
     localStorage.setItem("formSubmissions", JSON.stringify(submissions));
     submissionDiv.remove();
   });
-}
+}*/
 /*Latest task section*/
 
 /*Latest Post Section*/
