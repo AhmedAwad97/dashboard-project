@@ -649,7 +649,9 @@
             <div class="status d-flex flex-between">
               <div class="react">
                 <a href="/"
-                  ><i class="fa-regular fa-heart fs-16 c-grey like"></i
+                  ><i
+                    class="fa-regular fa-heart fs-16 c-grey like <%= userLikes[post._id] ? 'fa-solid liked' : '' %>"
+                  ></i
                 ></a>
                 <span class="counter fs-16 c-grey">
                   <%= post.likeCount %> likes</span

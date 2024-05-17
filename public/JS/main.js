@@ -77,13 +77,13 @@ like.addEventListener("click", (event) => {
     .then((result) => {
       if (result.success) {
         const likeCounter = like.nextElementSibling;
-
+        likeCounter.textContent = `${result.likeCount} likes`;
         if (result.unliked) {
-          like.querySelector("i").classList.toggle("fa-solid");
-          like.querySelector("i").classList.toggle("liked");
+          like.querySelector("i").classList.remove("fa-solid");
+          like.querySelector("i").classList.remove("liked");
         } else {
-          like.querySelector("i").classList.toggle("fa-solid");
-          like.querySelector("i").classList.toggle("liked");
+          like.querySelector("i").classList.add("fa-solid");
+          like.querySelector("i").classList.add("liked");
         }
       } else {
         console.error("Error:", result.error);

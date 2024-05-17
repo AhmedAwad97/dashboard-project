@@ -3,15 +3,24 @@ const Comment = require("../../models/comment");
 const Like = require("../../models/like");
 const Post = require("../../models/post");
 
-const dashboardIndex = (req, res) => {
-  Promise.all([Task.find(), Post.find(), Like.find()])
-    .then((result) => {
-      const [tasks, posts, likes] = result;
-      res.render("index", { tasks, posts });
-    })
-    .catch((err) => {
-      console.log(err);
+const dashboardIndex = async (req, res) => {
+  try {
+    const [tasks, posts, likes] = await Promise.all([
+      Task.find(),
+      Post.find(),
+      Like.find(),
+    ]);
+
+    const userLikes = {};
+    likes.forEach((like) => {
+      userLikes[like.postId] = true;
     });
+
+    res.render("index", { tasks, posts, userLikes });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ success: false, error: err.message });
+  }
 };
 
 const dashboard_task_post = (req, res) => {
@@ -44,10 +53,14 @@ const dashboard_like_post = async (req, res) => {
 
     if (like) {
       //decrement the like count
-      updatedPost = await Post.findByIdAndUpdate(postId, {
-        $inc: { likeCount: -1 },
-      });
       await Like.deleteOne({ _id: like._id });
+      updatedPost = await Post.findByIdAndUpdate(
+        postId,
+        {
+          $inc: { likeCount: -1 },
+        },
+        { new: true }
+      );
       res.json({
         success: true,
         unliked: true,
@@ -55,10 +68,14 @@ const dashboard_like_post = async (req, res) => {
       });
     } else {
       const newLike = new Like({ postId });
-      updatedPost = await Post.findByIdAndUpdate(postId, {
-        $inc: { likeCount: 1 },
-      });
       await newLike.save();
+      updatedPost = await Post.findByIdAndUpdate(
+        postId,
+        {
+          $inc: { likeCount: 1 },
+        },
+        { new: true }
+      );
       res.json({
         success: true,
         unliked: false,
