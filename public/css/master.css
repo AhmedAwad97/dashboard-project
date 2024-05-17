@@ -670,9 +670,10 @@ aside ul a span {
   color: var(--blue-color);
 }
 
-.latest-post .comment-section {
-  /* display: none; */
+.latest-post .comment-section.hidden {
+  display: none;
 }
+
 .latest-post .comment-section input {
   border: 1px solid #ccc;
   transition: var(--main-transition-duration);

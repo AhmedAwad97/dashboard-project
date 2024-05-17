@@ -75,20 +75,16 @@ like.addEventListener("click", (event) => {
   })
     .then((response) => response.json())
     .then((result) => {
-      console.log(result);
       if (result.success) {
         const likeCounter = like.nextElementSibling;
-        let currentCount = parseInt(likeCounter.textContent, 10);
+
         if (result.unliked) {
           like.querySelector("i").classList.toggle("fa-solid");
           like.querySelector("i").classList.toggle("liked");
-          currentCount--;
         } else {
           like.querySelector("i").classList.toggle("fa-solid");
           like.querySelector("i").classList.toggle("liked");
-          currentCount++;
         }
-        likeCounter.textContent = currentCount;
       } else {
         console.error("Error:", result.error);
       }
@@ -110,20 +106,20 @@ let commentSectionBtn = document.querySelector(".comment-section button");
 
 /*Display the comment input to add a comment */
 comment.addEventListener("click", () => {
-  commentSection.style.display = "block";
+  commentSection.classList.toggle("hidden");
 });
 
 /*increment the comment counter with each comment added */
 commentSectionBtn.addEventListener("click", (event) => {
   if (commentSectionInput.value.trim() === "") {
-    event.preventDefault(); //prevent form from submiting if input is empty
+    event.preventDefault();
     commentSectionInput.placeholder = "You cant comment empty comment";
     return;
   }
   commentCounter++;
   comment.nextElementSibling.textContent = commentCounter;
   // commentSectionInput.value = "";
-  commentSection.style.display = "none";
+  commentSection.classList.toggle("hidden");
   document.querySelector(".pop-up").style.display = "flex";
 });
 

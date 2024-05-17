@@ -35,22 +35,39 @@ const task_delete = (req, res) => {
     });
 };
 
-const dashboard_like_post = (req, res) => {
-  const postId = req.params.id;
-  Like.findOne({ postId })
-    .then((like) => {
-      if (like) {
-        console.log("Like found" + like);
-        return Like.deleteOne({ _id: like._id }).then(() => ({
-          unliked: true,
-        }));
-      } else {
-        const newLike = new Like({ postId });
-        return newLike.save().then(() => ({ unliked: false }));
-      }
-    })
-    .then((result) => res.json({ success: true, ...result }))
-    .catch((err) => res.json({ success: false, error: err }));
+const dashboard_like_post = async (req, res) => {
+  try {
+    const postId = await req.params.id;
+
+    let like = await Like.findOne({ postId });
+    let updatedPost;
+
+    if (like) {
+      //decrement the like count
+      updatedPost = await Post.findByIdAndUpdate(postId, {
+        $inc: { likeCount: -1 },
+      });
+      await Like.deleteOne({ _id: like._id });
+      res.json({
+        success: true,
+        unliked: true,
+        likeCount: updatedPost.likeCount,
+      });
+    } else {
+      const newLike = new Like({ postId });
+      updatedPost = await Post.findByIdAndUpdate(postId, {
+        $inc: { likeCount: 1 },
+      });
+      await newLike.save();
+      res.json({
+        success: true,
+        unliked: false,
+        likeCount: updatedPost.likeCount,
+      });
+    }
+  } catch (err) {
+    res.json({ success: false, error: err });
+  }
 };
 
 const dashboard_comment_post = async (req, res) => {

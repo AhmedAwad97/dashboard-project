@@ -630,6 +630,7 @@
             data-post-id="<%= post.id %>"
           >
             <h2>Latest Post</h2>
+
             <header class="pad-20 d-flex align-c gap-10 pb-20">
               <img src="img/avatar.jpg" alt="avatar" class="rad-half" />
               <div class="info">
@@ -661,7 +662,7 @@
                 >
               </div>
             </div>
-            <div class="comment-section mt-15">
+            <div class="comment-section hidden mt-15">
               <form
                 action="/dashboard/comments"
                 method="post"
