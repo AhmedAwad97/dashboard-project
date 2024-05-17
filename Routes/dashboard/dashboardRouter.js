@@ -4,6 +4,7 @@ const dashboardController = require("../../controller/dashboard/dashboardControl
 
 router.get("/", dashboardController.dashboardIndex);
 router.post("/tasks", dashboardController.dashboard_task_post);
-router.post("/comments", dashboardController.dashboard_comment_post);
+router.post("/likes/:id", dashboardController.dashboard_like_post);
+router.post("/comments/", dashboardController.dashboard_comment_post);
 router.delete("/:id", dashboardController.task_delete);
 module.exports = router;

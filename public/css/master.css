@@ -654,6 +654,10 @@ aside ul a span {
   }
 }
 
+.latest-post i.liked:first-of-type {
+  color: red;
+}
+
 .latest-post i {
   cursor: pointer;
   transition: var(--main-transition-duration);

@@ -3,6 +3,8 @@
  * make a drop menu when clicking on the profile photo or the notification icon in the header section
  */
 
+// const { post } = require("../../Routes/sideBarRouter/sideBarRouter");
+
 let profilePic = document.querySelector("#profilePic");
 profilePic.addEventListener("click", () => {
   document.querySelector(".profileContent").classList.toggle("visible");
@@ -60,19 +62,41 @@ trashcan.forEach((icon) => {
 /*
 change the fill color of the like and increament it 
 */
-let like = document.querySelector(".react i ");
-let counter = parseInt(like.nextElementSibling.textContent);
-like.addEventListener("click", () => {
-  like.classList.toggle("fa-solid");
-  like.style.color = "red";
-  if (like.classList.contains("fa-solid")) {
-    counter++;
-  } else {
-    counter--;
-  }
-  like.nextElementSibling.textContent = counter;
-});
 
+let like = document.querySelector(".react a");
+like.addEventListener("click", (event) => {
+  event.preventDefault();
+  const postId = like.parentElement.parentElement.parentElement.dataset.postId;
+  const endpoint = `/dashboard/likes/${postId}`;
+  fetch(endpoint, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ postId }),
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(result);
+      if (result.success) {
+        const likeCounter = like.nextElementSibling;
+        let currentCount = parseInt(likeCounter.textContent, 10);
+        if (result.unliked) {
+          like.querySelector("i").classList.toggle("fa-solid");
+          like.querySelector("i").classList.toggle("liked");
+          currentCount--;
+        } else {
+          like.querySelector("i").classList.toggle("fa-solid");
+          like.querySelector("i").classList.toggle("liked");
+          currentCount++;
+        }
+        likeCounter.textContent = currentCount;
+      } else {
+        console.error("Error:", result.error);
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 /*
  * comment part, use on click event to show the comment section and increment it when user comment
  * and use the event to hide the input again
@@ -84,23 +108,24 @@ let commentSection = document.querySelector(".comment-section");
 let commentSectionInput = document.querySelector(".comment-section input");
 let commentSectionBtn = document.querySelector(".comment-section button");
 
-// /*Display the comment input to add a comment */
-// comment.addEventListener("click", () => {
-//   commentSection.style.display = "block";
-// });
+/*Display the comment input to add a comment */
+comment.addEventListener("click", () => {
+  commentSection.style.display = "block";
+});
 
 /*increment the comment counter with each comment added */
-// commentSectionBtn.addEventListener("click", () => {
-//   if (commentSectionInput.value.trim() === "") {
-//     commentSectionInput.placeholder = "You cant comment empty comment";
-//     return;
-//   }
-//   commentCounter++;
-//   comment.nextElementSibling.textContent = commentCounter;
-//   commentSectionInput.value = "";
-//   commentSection.style.display = "none";
-//   document.querySelector(".pop-up").style.display = "flex";
-// });
+commentSectionBtn.addEventListener("click", (event) => {
+  if (commentSectionInput.value.trim() === "") {
+    event.preventDefault(); //prevent form from submiting if input is empty
+    commentSectionInput.placeholder = "You cant comment empty comment";
+    return;
+  }
+  commentCounter++;
+  comment.nextElementSibling.textContent = commentCounter;
+  // commentSectionInput.value = "";
+  commentSection.style.display = "none";
+  document.querySelector(".pop-up").style.display = "flex";
+});
 
 /*Close the pop-up window*/
 let closeBtn = document.querySelector(".pop-up button");

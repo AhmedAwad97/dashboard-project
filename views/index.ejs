@@ -624,32 +624,41 @@
           <!--End Reminder-->
 
           <!--Start latest post-->
-          <div class="card latest-post pad-20 bg-white rad-10 p-relative">
+          <% posts.forEach((post) => { %>
+          <div
+            class="card latest-post pad-20 bg-white rad-10 p-relative"
+            data-post-id="<%= post.id %>"
+          >
             <h2>Latest Post</h2>
             <header class="pad-20 d-flex align-c gap-10 pb-20">
               <img src="img/avatar.jpg" alt="avatar" class="rad-half" />
               <div class="info">
-                <h3 class="fs-20">Ahmed Awad</h3>
-                <p class="c-grey fs-14 mt-5">About 3 Hours Ago</p>
+                <h3 class="fs-20"><%= post.author %></h3>
+                <p class="c-grey fs-14 mt-5">
+                  <%= new Date(post.createdAt).toLocaleDateString('en-US', {
+                  month: 'long', day: 'numeric', year: 'numeric' }) %>
+                </p>
               </div>
             </header>
 
             <div class="body">
-              <p class="fs-16">
-                You Can Fool All Of The People Some Of The Time, And Some Of The
-                People All Of The Time, But You Can't Fool All Of The People All
-                Of The Time.
-              </p>
+              <p class="fs-16"><%= post.content %></p>
             </div>
 
             <div class="status d-flex flex-between">
               <div class="react">
-                <i class="fa-regular fa-heart fs-16 c-grey like"></i>
-                <span class="fs-16 c-grey">50</span>
+                <a href="/"
+                  ><i class="fa-regular fa-heart fs-16 c-grey like"></i
+                ></a>
+                <span class="counter fs-16 c-grey">
+                  <%= post.likeCount %> likes</span
+                >
               </div>
               <div class="comment">
                 <i class="fa-regular fa-comments fs-16 c-grey comment"></i>
-                <span class="fs-16 c-grey">876</span>
+                <span class="fs-16 c-grey">
+                  <%= post. commentCount %> comments</span
+                >
               </div>
             </div>
             <div class="comment-section mt-15">
@@ -663,19 +672,13 @@
                   class="rad-10 full-width pad-10 c-grey mr-15"
                   name="content"
                 />
+                <input type="hidden" name="postId" value="<%= post._id %>" />
                 <button type="submit" class="btn-shape rad-6 bg-blue c-white">
                   Comment
                 </button>
               </form>
             </div>
-            <!--Pop up window, appears when the comment button clicked-->
-            <div class="pop-up">
-              <i class="fa-solid fa-xmark"></i>
-              <p>Your Comment has been sent :&rpar;</p>
-              <button class="btn-pad btn-shape bg-blue c-white fs-14 d-block">
-                Close
-              </button>
-            </div>
+            <% }) %>
           </div>
 
           <!--End latest post-->
