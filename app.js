@@ -31,43 +31,46 @@ app.get("/", (req, res) => {
 });
 
 app.get("/settings", (req, res) => {
-  res.render("settings");
+  res.render("settings", { title: "Settings", currentPath: "/settings" });
 });
 
 app.get("/profile", (req, res) => {
-  res.render("profile");
+  res.render("profile", { title: "Profile", currentPath: "/profile" });
 });
 
 app.get("/projects", (req, res) => {
-  res.render("projects");
+  res.render("projects", { title: "Projects", currentPath: "/projects" });
 });
 
 app.get("/courses", (req, res) => {
-  res.render("courses");
+  res.render("courses", { title: "Courses", currentPath: "/courses" });
 });
 
 app.get("/friends", (req, res) => {
-  res.render("friends");
+  res.render("friends", { title: "Friends", currentPath: "/friends" });
 });
 
 app.get("/files", (req, res) => {
-  res.render("files");
+  res.render("files", { title: "Files", currentPath: "/files" });
 });
 
 app.get("/plans", (req, res) => {
-  res.render("plans");
+  res.render("plans", { title: "Plans", currentPath: "/plans" });
 });
 
 app.get("/contact-form", (req, res) => {
-  res.render("contact");
+  res.render("contact", {
+    title: "Conntact-Form",
+    currentPath: "/contact-form",
+  });
 });
 
 app.get("/crud", (req, res) => {
-  res.render("crud");
+  res.render("crud", { title: "CRUD", currentPath: "/crud" });
 });
 
 app.use("/dashboard", dashboardRouter);
 
 app.use((req, res) => {
-  res.status(404).render("404");
+  res.status(404).render("404", { title: "Page-Not-Found" });
 });

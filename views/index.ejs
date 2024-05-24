@@ -1,137 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="css/all.min.css" />
-    <link rel="stylesheet" href="css/framework.css" />
-    <link rel="stylesheet" href="css/master.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+  <%- include("./component/head.ejs") %>
   <body>
     <div class="page d-flex">
       <!--Start Side Bar-->
-      <aside class="pad-20">
-        <h3 class="p-relative txt-c">Ahmed</h3>
-        <ul class="links">
-          <li>
-            <a href="/dashboard" class="active rad-6 pad-10 d-flex align-c">
-              <i class="fa-solid fa-gauge"></i>
-              <span>Dashboard</span>
-            </a>
-          </li>
-          <li>
-            <a href="/settings" class="rad-6 pad-10 d-flex align-c">
-              <i class="fa-solid fa-gear"></i>
-              <span>Settings</span>
-            </a>
-          </li>
-          <li>
-            <a href="/profile" class="rad-6 pad-10 d-flex align-c">
-              <i class="fa-regular fa-user"></i>
-              <span>Profile</span>
-            </a>
-          </li>
-          <li>
-            <a href="/projects" class="rad-6 pad-10 d-flex align-c">
-              <i class="fa-solid fa-diagram-project"></i>
-              <span>Projects</span>
-            </a>
-          </li>
-          <li>
-            <a href="/courses" class="rad-6 pad-10 d-flex align-c">
-              <i class="fa-solid fa-graduation-cap"></i>
-              <span>Courses</span>
-            </a>
-          </li>
-          <li>
-            <a href="/friends" class="rad-6 pad-10 d-flex align-c">
-              <i class="fa-solid fa-user-group"></i>
-              <span>Friends</span>
-            </a>
-          </li>
-          <li>
-            <a href="/files" class="rad-6 pad-10 d-flex align-c">
-              <i class="fa-regular fa-file"></i>
-              <span>Files</span>
-            </a>
-          </li>
-          <li>
-            <a href="plans" class="rad-6 pad-10 d-flex align-c">
-              <i class="fa-solid fa-credit-card"></i>
-              <span>Plans</span>
-            </a>
-          </li>
-          <li>
-            <a href="/contact-form" class="rad-6 pad-10 d-flex align-c">
-              <i class="fa-regular fa-pen-to-square"></i>
-              <span>Contact Form</span>
-            </a>
-          </li>
-          <li>
-            <a href="/crud" class="rad-6 pad-10 d-flex align-c">
-              <i class="fa-solid fa-plus"></i>
-              <span>CRUD</span>
-            </a>
-          </li>
-        </ul>
-      </aside>
+      <%- include("./component/nav.ejs") %>
       <!--End Side Bar-->
 
       <!--Start Content-->
 
       <div class="content full-width">
-        <header class="pad-15 flex-between">
-          <div class="search p-relative">
-            <input type="search" placeholder="Type A Keyword" class="pad-10" />
-          </div>
-          <div class="icons felx-center">
-            <span class="notification notificationIcon p-relative">
-              <i class="fa-regular fa-bell p-relative"></i>
-            </span>
-            <img src="img/avatar.jpg" alt="" class="rad-half" id="profilePic" />
-          </div>
-          <ul class="profileContent">
-            <li>
-              <a href="/profile" class="d-block c-black fs-14 mb-15"
-                ><i class="fa-regular fa-user mr-5"></i>
-                <span>View Profile</span></a
-              >
-            </li>
-            <li>
-              <a href="/settings" class="d-block c-black fs-14 mb-15"
-                ><i class="fa-solid fa-gear mr-5"></i> <span>Settings</span></a
-              >
-            </li>
-            <li>
-              <a href="#" class="d-block c-black fs-14 mb-15"
-                ><i class="fa-solid fa-power-off mr-5"></i
-                ><span>Log Out</span></a
-              >
-            </li>
-          </ul>
-
-          <ul class="notificationContent">
-            <li>
-              <a href="#" class="d-block c-black fs-14 mb-15"
-                ><i class="fa-solid fa-coins mr-5"></i>
-                <span>500€ has been added to your wallet</span></a
-              >
-            </li>
-            <li>
-              <a href="/profile" class="d-block c-black fs-14 mb-15"
-                ><i class="fa-solid fa-envelope mr-5"></i>
-                <span>You have 5 new messages</span></a
-              >
-            </li>
-          </ul>
-        </header>
+        <%- include("./component/header.ejs") %>
 
         <h1 class="p-relative">Dashboard</h1>
 

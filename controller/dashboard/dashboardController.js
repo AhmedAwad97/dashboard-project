@@ -3,7 +3,7 @@ const Comment = require("../../models/comment");
 const Like = require("../../models/like");
 const Post = require("../../models/post");
 
-const dashboardIndex = async (req, res) => {
+const dashboardIndex = async (req, res, currentPath) => {
   try {
     const [tasks, posts, likes] = await Promise.all([
       Task.find(),
@@ -16,7 +16,13 @@ const dashboardIndex = async (req, res) => {
       userLikes[like.postId] = true;
     });
 
-    res.render("index", { tasks, posts, userLikes });
+    res.render("index", {
+      title: "Dashboard",
+      tasks,
+      posts,
+      userLikes,
+      currentPath,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json({ success: false, error: err.message });
