@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const dashboardRouter = require("./Routes/dashboardRouter");
 const settingsRouter = require("./Routes/settingsRouter");
 const profileRouter = require("./Routes/profileRouter");
+const contactRouter = require("./Routes/contactRouter");
 
 const app = express();
 app.use(bodyParser.json());
@@ -32,14 +33,6 @@ app.get("/", (req, res) => {
   res.redirect("dashboard");
 });
 
-// app.get("/settings", (req, res) => {
-//   res.render("settings", { title: "Settings", currentPath: "/settings" });
-// });
-
-// app.get("/profile", (req, res) => {
-//   res.render("profile", { title: "Profile", currentPath: "/profile" });
-// });
-
 app.get("/projects", (req, res) => {
   res.render("projects", { title: "Projects", currentPath: "/projects" });
 });
@@ -60,12 +53,12 @@ app.get("/plans", (req, res) => {
   res.render("plans", { title: "Plans", currentPath: "/plans" });
 });
 
-app.get("/contact-form", (req, res) => {
-  res.render("contact", {
-    title: "Conntact-Form",
-    currentPath: "/contact-form",
-  });
-});
+// app.get("/contact-form", (req, res) => {
+//   res.render("contact", {
+//     title: "Conntact-Form",
+//     currentPath: "/contact-form",
+//   });
+// });
 
 app.get("/crud", (req, res) => {
   res.render("crud", { title: "CRUD", currentPath: "/crud" });
@@ -74,6 +67,7 @@ app.get("/crud", (req, res) => {
 app.use("/dashboard", dashboardRouter);
 app.use("/settings", settingsRouter);
 app.use("/profile", profileRouter);
+app.use("/contact-form", contactRouter);
 
 app.use((req, res) => {
   res
