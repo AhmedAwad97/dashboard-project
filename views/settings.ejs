@@ -59,13 +59,17 @@
           <!--End Site Control-->
 
           <!--Start General Info-->
-          <div class="card general-info pad-15 bg-white rad-10">
+          <div
+            class="card general-info pad-15 bg-white rad-10"
+            data-user-id="<%= user._id %>"
+          >
             <h2 class="mb-10">General Info</h2>
             <p class="c-grey fs-14 mb-15">
               General Information About Your Account
             </p>
 
-            <form action="#">
+            <form action="/settings/general-info" method="post">
+              <input type="hidden" name="userId" value="<%= user._id %>" />
               <div class="content mb-15">
                 <label for="first-name" class="d-block c-grey fs-14"
                   >First Name</label
@@ -73,8 +77,9 @@
                 <input
                   type="text"
                   id="first-name"
-                  placeholder="First Name"
-                  name="first name"
+                  placeholder="<%= user['first-name'] %>"
+                  name="first-name"
+                  value="<%= user['first-name'] %>"
                   class="mt-5 pad-10 rad-6"
                 />
               </div>
@@ -86,8 +91,9 @@
                 <input
                   type="text"
                   id="last-name"
-                  placeholder="Last Name"
-                  name="first name"
+                  placeholder="<%= user['last-name'] %>"
+                  name="last-name"
+                  value="<%= user['last-name'] %>"
                   class="mt-5 pad-10 rad-6"
                 />
               </div>
@@ -99,12 +105,20 @@
                   id="email"
                   placeholder="email"
                   name="email"
-                  value="ahm@gmail.com"
+                  value="<%= user.email %>"
                   class="mt-5 pad-10 rad-6"
                   disabled
                 />
                 <a href="#" class="c-blue fs-16 change">Change</a>
                 <a href="#" class="c-blue fs-16 save hidden">Save</a>
+              </div>
+              <div class="d-flex">
+                <button
+                  type="submit"
+                  class="btn-shape save-info btn-pad bg-blue c-white rad-6 fs-14"
+                >
+                  Save Information
+                </button>
               </div>
             </form>
           </div>
@@ -117,27 +131,37 @@
               Security Information About Your Account
             </p>
 
-            <div class="box flex-between align-c pb-20">
-              <div>
-                <span class="d-block fs-16">Password</span>
-                <span class="d-block c-grey fs-12 mt-5"
-                  >Last Change On 25/10/2021</span
+            <form action="/settings/security-info" method="post">
+              <input type="hidden" name="userId" value="<%= user._id %>" />
+              <div class="box flex-between align-c pb-20">
+                <div>
+                  <span class="d-block fs-16">Password</span>
+                  <!--Use Userinfo object to get the last time password updated and pass it in the span-->
+                  <span class="d-block c-grey fs-12 mt-5"
+                    >Last Change On <%= new
+                    Date(userinfo.passwordUpdatedAt).toLocaleString('en-GB', {
+                    year: 'numeric', month: '2-digit', day: '2-digit', hour:
+                    '2-digit', minute: '2-digit' }).replace(',', '') %></span
+                  >
+                </div>
+                <a href="#" class="button btn-shape bg-blue c-white rad-6 fs-14"
+                  >Change</a
                 >
+
+                <button
+                  type="submit"
+                  class="button btn-shape bg-blue c-white rad-6 fs-14 save hidden"
+                >
+                  Save
+                </button>
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Please enter new password"
+                  class="rad-6 pad-10 mt-10 hidden"
+                />
               </div>
-              <a href="#" class="button btn-shape bg-blue c-white rad-6 fs-14"
-                >Change</a
-              >
-              <a
-                href="#"
-                class="button btn-shape bg-blue c-white rad-6 fs-14 save hidden"
-                >Save</a
-              >
-              <input
-                type="password"
-                placeholder="Please enter new password"
-                class="rad-6 pad-10 mt-10 hidden"
-              />
-            </div>
+            </form>
 
             <div class="box flex-between align-c mt-20 pb-20">
               <div>

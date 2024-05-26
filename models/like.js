@@ -13,7 +13,7 @@ const likeSchema = new Schema(
       default: Date.now,
     },
   },
-  { timestamp: true }
+  { timestamps: true }
 );
 
 const Like = mongoose.model("like", likeSchema);

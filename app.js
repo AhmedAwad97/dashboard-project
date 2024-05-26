@@ -2,7 +2,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
-const dashboardRouter = require("./Routes/dashboard/dashboardRouter");
+const dashboardRouter = require("./Routes/dashboardRouter");
+const settingsRouter = require("./Routes/settingsRouter");
+const profileRouter = require("./Routes/profileRouter");
 
 const app = express();
 app.use(bodyParser.json());
@@ -30,13 +32,13 @@ app.get("/", (req, res) => {
   res.redirect("dashboard");
 });
 
-app.get("/settings", (req, res) => {
-  res.render("settings", { title: "Settings", currentPath: "/settings" });
-});
+// app.get("/settings", (req, res) => {
+//   res.render("settings", { title: "Settings", currentPath: "/settings" });
+// });
 
-app.get("/profile", (req, res) => {
-  res.render("profile", { title: "Profile", currentPath: "/profile" });
-});
+// app.get("/profile", (req, res) => {
+//   res.render("profile", { title: "Profile", currentPath: "/profile" });
+// });
 
 app.get("/projects", (req, res) => {
   res.render("projects", { title: "Projects", currentPath: "/projects" });
@@ -70,7 +72,11 @@ app.get("/crud", (req, res) => {
 });
 
 app.use("/dashboard", dashboardRouter);
+app.use("/settings", settingsRouter);
+app.use("/profile", profileRouter);
 
 app.use((req, res) => {
-  res.status(404).render("404", { title: "Page-Not-Found" });
+  res
+    .status(404)
+    .render("404", { title: "Page-Not-Found", currentPath: req.path });
 });

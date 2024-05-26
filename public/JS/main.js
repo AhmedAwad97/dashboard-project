@@ -2,8 +2,6 @@
 /**
  * make a drop menu when clicking on the profile photo or the notification icon in the header section
  */
-
-// const { post } = require("../../Routes/sideBarRouter/sideBarRouter");
 let profilePic = document.querySelector("#profilePic");
 profilePic.addEventListener("click", () => {
   document.querySelector(".profileContent").classList.toggle("visible");
@@ -44,7 +42,11 @@ trashcan.forEach((icon) => {
       fetch(endpoint, { method: "DELETE" })
         .then((response) => response.json())
         .then((result) => {
-          window.location.href = result.redirect;
+          if (result.success) {
+            icon.closest(".tasks-row").remove();
+          } else {
+            console.log("Error deleting task");
+          }
         })
         .catch((err) => {
           console.log(err);
@@ -119,18 +121,6 @@ commentSectionBtn.addEventListener("click", (event) => {
   comment.nextElementSibling.textContent = commentCounter;
   // commentSectionInput.value = "";
   commentSection.classList.toggle("hidden");
-  document.querySelector(".pop-up").style.display = "flex";
-});
-
-/*Close the pop-up window*/
-let closeBtn = document.querySelector(".pop-up button");
-let closeIcon = document.querySelector(".pop-up i");
-
-closeBtn.addEventListener("click", () => {
-  closeBtn.parentElement.style.display = "none";
-});
-closeIcon.addEventListener("click", () => {
-  closeIcon.parentElement.style.display = "none";
 });
 
 /*Latest Post Section*/

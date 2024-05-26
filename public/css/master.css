@@ -353,12 +353,12 @@ aside ul a span {
   margin-top: 20px;
 }
 
-.card.quick-draft form button {
+.card form button {
   border: none;
   cursor: pointer;
 }
 
-.card.quick-draft form button:hover {
+.card form button:hover {
   background-color: var(--blue-alt-color);
 }
 /*End of Quick Draft*/
@@ -942,7 +942,21 @@ aside ul a span {
   display: none;
 }
 
-. @media screen and (max-width: 767px) {
+.card.general-info form div:last-child {
+  display: flex;
+  justify-content: end;
+  margin-top: 20px;
+}
+
+.card.general-info button.save-info {
+  display: none;
+}
+
+.card.general-info button.save-info.visible {
+  display: block;
+}
+
+@media screen and (max-width: 767px) {
   .general-info a {
     font-size: 12px;
   }
@@ -993,7 +1007,8 @@ aside ul a span {
   background-color: var(--blue-alt-color);
 }
 
-.card.security-info a.hidden {
+.card.security-info a.hidden,
+.card.security-info button.hidden {
   display: none;
 }
 /*End Security info*/
