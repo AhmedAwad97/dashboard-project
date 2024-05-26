@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!--include the head component
+  to make the code cleaner and dont repeat for each page-->
   <%- include("./component/head.ejs") %>
   <body>
     <div class="page courses d-flex">
       <!--Start Side Bar-->
       <%- include("./component/nav.ejs") %>
+      <!--Include the navigation bar-->
       <!--End Side Bar-->
 
       <!--Start Content-->
-
       <div class="content full-width">
         <%- include("./component/header.ejs") %>
 
@@ -299,5 +301,6 @@
       <!--End Content-->
     </div>
     <script src="JS/main.js"></script>
+    <script src="JS/dark-mode.js"></script>
   </body>
 </html>

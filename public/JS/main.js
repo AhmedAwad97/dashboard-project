@@ -4,7 +4,6 @@
  */
 
 // const { post } = require("../../Routes/sideBarRouter/sideBarRouter");
-
 let profilePic = document.querySelector("#profilePic");
 profilePic.addEventListener("click", () => {
   document.querySelector(".profileContent").classList.toggle("visible");
