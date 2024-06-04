@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./component/head.ejs") %>
+  <body>
+    <div class="page d-flex">
+      <!--Start Side Bar-->
+      <%- include("./component/nav.ejs") %>
+      <!--End Side Bar-->
+
+      <!--Start Content-->
+
+      <div class="content full-width">
+        <%- include("./component/header.ejs") %>
+
+        <h1 class="p-relative">Page Not Found</h1>
+
+        <div class="pageNotFound">
+          <h2>Opps, Page Not Found, please use the correct link!</h2>
+        </div>
+      </div>
+      <!--End Content-->
+    </div>
+    <script src="/JS/main.js"></script>
+    <script src="JS/dark-mode.js"></script>
+  </body>
+</html>

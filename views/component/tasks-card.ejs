@@ -1,0 +1,66 @@
+<div class="card tasks pad-20 bg-white rad-10">
+  <h2>Latest Tasks</h2>
+
+  <div class="tasks-row d-flex align-c gap-20 mt-20">
+    <div class="info">
+      <h3 class="fs-16">Record One New Video</h3>
+      <p class="c-grey fs-14 mt-5">Record Python Create Exe Project</p>
+    </div>
+    <a href="/">
+      <i class="fa-regular fa-trash-can fs-20"></i>
+    </a>
+  </div>
+
+  <div class="tasks-row d-flex align-c gap-20 mt-20">
+    <div class="info">
+      <h3 class="fs-16">Write Article</h3>
+      <p class="c-grey fs-14 mt-5">Write Low Level vs High Level Languages</p>
+    </div>
+    <a href="#">
+      <i class="fa-regular fa-trash-can fs-20"></i>
+    </a>
+  </div>
+
+  <div class="tasks-row d-flex align-c gap-20 mt-20">
+    <div class="info">
+      <h3 class="fs-16">Finish Project</h3>
+      <p class="c-grey fs-14 mt-5">Publish Academy Programming Project</p>
+    </div>
+    <a href="#">
+      <i class="fa-regular fa-trash-can fs-20"></i>
+    </a>
+  </div>
+
+  <div class="tasks-row done d-flex align-c gap-20 mt-20">
+    <div class="info">
+      <h3 class="fs-16">Attend The Meeting</h3>
+      <p class="c-grey fs-14 mt-5">
+        Attend The Project Business Analysis Meeting
+      </p>
+    </div>
+    <a href="#">
+      <i class="fa-regular fa-trash-can fs-20"></i>
+    </a>
+  </div>
+
+  <div class="tasks-row d-flex align-c gap-20 mt-20">
+    <div class="info">
+      <h3 class="fs-16">Finish Lesson</h3>
+      <p class="c-grey fs-14 mt-5">Finish Teaching Flex Box</p>
+    </div>
+    <a href="#">
+      <i class="fa-regular fa-trash-can fs-20"></i>
+    </a>
+  </div>
+  <% if(tasks.length > 0) { %> <% tasks.forEach((task) => { %>
+  <div class="tasks-row d-flex align-c gap-20 mt-20">
+    <div class="info">
+      <h3 class="fs-16"><%= task.title %></h3>
+      <p class="c-grey fs-14 mt-5"><%= task.content %></p>
+    </div>
+    <a href="#" class="delete" data-doc="<%= task._id %>">
+      <i class="fa-regular fa-trash-can fs-20"></i>
+    </a>
+  </div>
+  <% }) %> <% } %>
+</div>

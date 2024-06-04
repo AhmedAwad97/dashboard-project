@@ -1,0 +1,29 @@
+<div class="card quick-draft bg-white rad-10">
+  <div class="header pad-20">
+    <div class="title">
+      <h2 class="m-0">Quick Draft</h2>
+      <p class="c-grey mt-5">Write A Draft For Your Ideas</p>
+    </div>
+  </div>
+  <div class="body pad-20">
+    <form action="/dashboard/tasks" method="post">
+      <input
+        type="text"
+        placeholder="Title"
+        name="title"
+        class="pad-10 bg-eee rad-6 d-block mb-20"
+      />
+      <textarea
+        name="content"
+        id="thought"
+        placeholder="Your Thought"
+        class="pad-10 bg-eee rad-6 d-block"
+      ></textarea>
+      <div>
+        <button type="submit" class="bg-blue c-white btn-pad fs-14">
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

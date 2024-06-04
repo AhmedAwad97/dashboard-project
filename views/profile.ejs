@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./component/head.ejs") %>
+  <body>
+    <div class="page profile d-flex">
+      <!--Start Side Bar-->
+      <%- include("./component/nav.ejs") %>
+      <!--End Side Bar-->
+
+      <!--Start Content-->
+
+      <div class="content full-width">
+        <%- include("./component/header.ejs") %>
+
+        <h1 class="p-relative">Profile</h1>
+
+        <!--Start avatar-->
+        <div class="card contact-card bg-white rad-10 d-flex">
+          <div class="felx-center">
+            <div class="contact-photo txt-c pad-40">
+              <img
+                src="img/avatar.jpg"
+                alt="avatar"
+                class="profile-avatar rad-half"
+              />
+              <h3 class="fs-18 mt-10">Ahmed Awad</h3>
+              <span class="level p-relative c-grey fs-14 d-block pad-10 mb-20"
+                >Level 99</span
+              >
+              <div class="rating fs-14 mb-15">
+                <i class="fa-solid fa-star c-orange"></i>
+                <i class="fa-solid fa-star c-orange"></i>
+                <i class="fa-solid fa-star c-orange"></i>
+                <i class="fa-solid fa-star c-orange"></i>
+                <i class="fa-solid fa-star c-orange"></i>
+              </div>
+              <span class="c-grey fs-12">976 Rating</span>
+            </div>
+          </div>
+
+          <div class="contact-info full-width">
+            <div class="box d-flex f-wrap fs-14 pad-20">
+              <h4 class="c-grey full-width mb-10">General Information</h4>
+              <div class="mb-10">
+                <span class="c-grey">Full Name</span>
+                <span><%= user["first-name"] + " " + user["last-name"] %></span>
+              </div>
+
+              <div class="mb-10">
+                <span class="c-grey">Gender</span>
+                <span><%= user.gender %></span>
+              </div>
+
+              <div class="mb-10">
+                <span class="c-grey">Nationality</span>
+                <span><%= user.nationality %></span>
+              </div>
+
+              <div>
+                <label>
+                  <input type="checkbox" class="toggle-checkbox" checked />
+                  <div class="toggle-switch p-relative"></div>
+                </label>
+              </div>
+            </div>
+
+            <div class="box d-flex f-wrap fs-14 pad-20">
+              <h4 class="c-grey full-width mb-10">Personal Information</h4>
+              <div class="mb-10">
+                <span class="c-grey">Email:</span>
+                <span><%= user.email %></span>
+              </div>
+
+              <div class="mb-10">
+                <span class="c-grey">Phone:</span>
+                <span><%= user.phone %></span>
+              </div>
+
+              <div class="mb-10">
+                <span class="c-grey">Date of Birth:</span>
+                <span><%= user.dateOfBirth %></span>
+              </div>
+
+              <div>
+                <label>
+                  <input type="checkbox" class="toggle-checkbox" />
+                  <div class="toggle-switch p-relative"></div>
+                </label>
+              </div>
+            </div>
+
+            <div class="box d-flex f-wrap fs-14 pad-20">
+              <h4 class="c-grey full-width mb-10">Job Information</h4>
+              <div class="mb-10">
+                <span class="c-grey">Title:</span>
+                <span>Web Developer</span>
+              </div>
+
+              <div class="mb-10">
+                <span class="c-grey">Programming Language:</span>
+                <span class="">Java</span>
+              </div>
+
+              <div class="mb-10">
+                <span class="c-grey">Year of Experience:</span>
+                <span>1 Year</span>
+              </div>
+
+              <div>
+                <label>
+                  <input type="checkbox" class="toggle-checkbox" checked />
+                  <div class="toggle-switch p-relative"></div>
+                </label>
+              </div>
+            </div>
+
+            <div class="box d-flex f-wrap fs-14 pad-20">
+              <h4 class="c-grey full-width mb-10">Billing Information</h4>
+              <div class="mb-10">
+                <span class="c-grey">Payment Method:</span>
+                <span>Paypal</span>
+              </div>
+
+              <div class="mb-10">
+                <span class="c-grey">Email:</span>
+                <span class="">email@website.com</span>
+              </div>
+
+              <div class="mb-10">
+                <span class="c-grey">Subscription:</span>
+                <span>Monthly</span>
+              </div>
+
+              <div>
+                <label>
+                  <input type="checkbox" class="toggle-checkbox" checked />
+                  <div class="toggle-switch p-relative"></div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--End avatar-->
+
+        <!--Start Skills and activities-->
+        <div class="other-data d-flex">
+          <div class="card skills bg-white rad-10 pad-20">
+            <h3 class="mb-10 fs-18">My Skills</h3>
+            <p class="fs-14 c-grey mb-20">Complete skills list</p>
+            <div class="row d-flex gap-10 pb-10 mt-15 fs-12">
+              <span class="btn-shape bg-eee rad-6">HTML</span>
+              <span class="btn-shape bg-eee rad-6">CSS</span>
+              <span class="btn-shape bg-eee rad-6">JS</span>
+            </div>
+
+            <div class="row d-flex gap-10 pb-10 mt-15 fs-12">
+              <span class="btn-shape bg-eee rad-6">PHP</span>
+              <span class="btn-shape bg-eee rad-6">Python</span>
+              <span class="btn-shape bg-eee rad-6">Django</span>
+            </div>
+
+            <div class="row d-flex gap-10 pb-10 mt-15 fs-12">
+              <span class="btn-shape bg-eee rad-6">Vuejs</span>
+              <span class="btn-shape bg-eee rad-6">Reactjs</span>
+            </div>
+          </div>
+
+          <div class="card activities bg-white rad-10 pad-20">
+            <h3 class="mb-10 fs-18">Latest Activities</h3>
+            <p class="fs-14 c-grey mb-20">Latest Activities Done By The User</p>
+
+            <div class="row d-flex align-c">
+              <img src="img/activity-01.png" alt="activity1" class="rad-half" />
+              <div class="info">
+                <h4 class="fs-16">Store</h4>
+                <p class="mt-5 c-grey fs-14">
+                  Bought The Mastering Python Course
+                </p>
+              </div>
+              <div class="date txt-c">
+                <span class="d-block fs-14">18:10</span>
+                <span class="d-block c-grey mt-5 fs-14">Yesterday</span>
+              </div>
+            </div>
+
+            <div class="row d-flex align-c">
+              <img src="img/activity-02.png" alt="activity2" class="rad-half" />
+              <div class="info">
+                <h4 class="fs-16">Academy</h4>
+                <p class="mt-5 c-grey fs-14">Got The PHP Certificate</p>
+              </div>
+              <div class="date txt-c">
+                <span class="d-block fs-14">16:15</span>
+                <span class="d-block c-grey mt-5 fs-14">Yesterday</span>
+              </div>
+            </div>
+
+            <div class="row d-flex align-c">
+              <img src="img/activity-03.png" alt="activity3" class="rad-half" />
+              <div class="info">
+                <h4 class="fs-16">Badges</h4>
+                <p class="mt-5 c-grey fs-14">Unlocked The 10 Skills Badge</p>
+              </div>
+              <div class="date txt-c">
+                <span class="d-block fs-14">18:05</span>
+                <span class="d-block c-grey mt-5 fs-14">Yesterday</span>
+              </div>
+            </div>
+
+            <div class="row d-flex align-c">
+              <img src="img/activity-01.png" alt="activity1" class="rad-half" />
+              <div class="info">
+                <h4 class="fs-16">Store</h4>
+                <p class="mt-5 c-grey fs-14">Bought The Typescript Course</p>
+              </div>
+              <div class="date txt-c">
+                <span class="d-block fs-14">12:30</span>
+                <span class="d-block c-grey mt-5 fs-14">Yesterday</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--End Skills and activities-->
+      </div>
+      <!--End Content-->
+    </div>
+    <script src="JS/main.js"></script>
+    <script src="JS/dark-mode.js"></script>
+  </body>
+</html>

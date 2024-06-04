@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!--include the head component
+  to make the code cleaner and dont repeat for each page-->
+  <%- include("./component/head.ejs") %>
+  <body>
+    <div class="page d-flex">
+      <!--Start Side Bar-->
+      <%- include("./component/nav.ejs") %>
+      <!--End Side Bar-->
+
+      <!--Start Content-->
+      <div class="content full-width">
+        <%- include("./component/header.ejs") %>
+        <h1 class="p-relative">Dashboard</h1>
+
+        <div class="cards d-grid gap-20">
+          <!--Start Welcome Card-->
+          <%- include("./component/welcome-card.ejs") %>
+          <!--End Welcome Card-->
+
+          <!--Start Quick Draft Card-->
+          <%- include("./component/quick-draft-card.ejs") %>
+          <!--End Quick Draft Card-->
+
+          <!--Start Tasks-->
+          <%- include("./component/tasks-card.ejs") %>
+          <!--End Tasks-->
+
+          <!--Start Yearly Target Card-->
+          <%- include("./component/yearly-target-card.ejs") %>
+          <!--End Yearly TargetCard-->
+
+          <!--Start Statistics-->
+          <%- include("./component/statistics-card.ejs") %>
+          <!--End Statistics-->
+
+          <!--Start news-->
+          <%- include("./component/news-card.ejs") %>
+          <!--End news-->
+
+          <!--Start Top Search-->
+          <%- include("./component/top-search-card.ejs") %>
+          <!--End Top Search-->
+
+          <!--Start Latest Uploads-->
+          <%- include("./component/lastest-uploades-card.ejs") %>
+          <!--End Latest Upload-->
+
+          <!--Start last project Progress-->
+          <%- include("./component/last-project-card.ejs") %>
+          <!--End last project Progress-->
+
+          <!--Start Reminder -->
+          <%- include("./component/reminders-card.ejs") %>
+          <!--End Reminder-->
+
+          <!--Start latest post-->
+          <%- include("./component/latest-post-card.ejs") %>
+
+          <!--End latest post-->
+
+          <!--Start Social -->
+          <%- include("./component/social-card.ejs") %>
+          <!--End Social -->
+          <!--Start Projects-->
+          <%- include("./component/dashoard-projects-card.ejs") %>
+          <!--End Projects-->
+        </div>
+      </div>
+      <!--End Content-->
+    </div>
+    <script src="/JS/main.js"></script>
+    <script src="JS/dark-mode.js"></script>
+  </body>
+</html>

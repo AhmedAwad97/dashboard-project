@@ -1,0 +1,95 @@
+/*Start page*/
+.page.dark,
+.page.dark aside,
+.page.dark header,
+.page.dark .profileContent.visible,
+.page.dark.profile .contact-info .box:hover,
+.page.dark.files .file-statistics,
+.page.dark .notificationContent.visible,
+.page.dark *::selection {
+  background-color: #121212;
+  color: white;
+}
+
+.page.dark .profileContent.visible a,
+.page.dark .notificationContent.visible a {
+  color: white;
+}
+
+.page.dark .profileContent.visible a:hover,
+.page.dark .notificationContent.visible a:hover {
+  color: #0075ff;
+}
+
+.page.dark > .content,
+.page.dark.profile .card.activities .row:hover {
+  background-color: #3f3f3f;
+}
+
+.page.dark .card,
+.page.dark input,
+.page.dark textarea,
+.page.dark .box,
+.page.dark .box input {
+  background-color: #282828;
+  color: white;
+}
+
+.page.dark .card.welcome .header {
+  background-color: transparent !important;
+}
+
+.page.dark .card.quick-draft input,
+.page.dark .card textarea {
+  border: 1px solid #eee;
+}
+
+.page.dark .toggle-checkbox:checked + .toggle-switch {
+  background: #121212 !important;
+}
+
+.page.dark .toggle-checkbox:checked + .toggle-switch::before {
+  background-color: #8b8b8b;
+  color: white !important;
+}
+
+.page.dark aside h3::before,
+aside.dark h3::after {
+  background-color: white;
+}
+
+.page.dark aside a {
+  color: white;
+}
+
+.page.dark aside a.active {
+  background-color: white;
+}
+
+.page.dark aside a.active,
+.page.dark aside a:hover {
+  color: black;
+}
+
+.page.dark .btn-shape {
+  background-color: #8b8b8b;
+  color: black;
+}
+
+.page.dark table thead,
+.page.dark table tbody tr:hover {
+  background-color: #3f3f3f;
+}
+
+.page.dark table thead tr:hover {
+  background-color: #0d69d5;
+}
+
+.page.dark.friends .card a.profile:hover span,
+.page.dark.friends .card a.delete:hover span {
+  color: white;
+}
+
+.page.dark .card header {
+  background-color: transparent;
+}

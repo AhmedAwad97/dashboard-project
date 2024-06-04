@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./component/head.ejs") %>
+  <body>
+    <div class="page d-flex">
+      <!--Start Side Bar-->
+      <%- include("./component/nav.ejs") %>
+      <!--End Side Bar-->
+
+      <!--Start Content-->
+
+      <div class="content full-width">
+        <%- include("./component/header.ejs") %>
+
+        <h1 class="p-relative">Settings</h1>
+
+        <div class="cards d-grid gap-20">
+          <!--Start Site Control-->
+          <div class="card site-control pad-15 bg-white rad-10">
+            <h2 class="mb-10">Site control</h2>
+            <p class="c-grey fs-14 mb-15">
+              Control The Website If There Is Maintenance
+            </p>
+            <div class="flex-between align-c">
+              <div>
+                <span class="fs-16">Website Control</span>
+                <p class="fs-12 c-grey mt-5">
+                  Open/Close Website And Type The Reason
+                </p>
+              </div>
+              <div>
+                <label>
+                  <input type="checkbox" class="toggle-checkbox" />
+                  <div class="toggle-switch p-relative"></div>
+                </label>
+              </div>
+            </div>
+            <div class="flex-between align-c mt-10 mb-15 dark-mode">
+              <div>
+                <span class="fs-16">Dark Mode</span>
+                <p class="fs-12 c-grey mt-5">
+                  switch between light/dark mode &lpar;Try it for this page only
+                  as a test&rpar;
+                </p>
+              </div>
+              <div>
+                <label>
+                  <input type="checkbox" class="toggle-checkbox" />
+                  <div class="toggle-switch p-relative dark-mode-btn"></div>
+                </label>
+              </div>
+            </div>
+            <textarea
+              name="close-message-content"
+              placeholder="Close Message Content"
+              class="pad-10 mt-20 rad-6"
+            ></textarea>
+          </div>
+          <!--End Site Control-->
+
+          <!--Start General Info-->
+          <div
+            class="card general-info pad-15 bg-white rad-10"
+            data-user-id="<%= user._id %>"
+          >
+            <h2 class="mb-10">General Info</h2>
+            <p class="c-grey fs-14 mb-15">
+              General Information About Your Account
+            </p>
+
+            <form action="/settings/general-info" method="post">
+              <input type="hidden" name="userId" value="<%= user._id %>" />
+              <div class="content mb-15">
+                <label for="first-name" class="d-block c-grey fs-14"
+                  >First Name</label
+                >
+                <input
+                  type="text"
+                  id="first-name"
+                  placeholder="<%= user['first-name'] %>"
+                  name="first-name"
+                  value="<%= user['first-name'] %>"
+                  class="mt-5 pad-10 rad-6"
+                />
+              </div>
+
+              <div class="content mb-15">
+                <label for="last-name" class="d-block c-grey fs-14"
+                  >Last Name</label
+                >
+                <input
+                  type="text"
+                  id="last-name"
+                  placeholder="<%= user['last-name'] %>"
+                  name="last-name"
+                  value="<%= user['last-name'] %>"
+                  class="mt-5 pad-10 rad-6"
+                />
+              </div>
+
+              <div class="content">
+                <label for="email" class="d-block c-grey fs-14">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="email"
+                  name="email"
+                  value="<%= user.email %>"
+                  class="mt-5 pad-10 rad-6"
+                  disabled
+                />
+                <a href="#" class="c-blue fs-16 change">Change</a>
+                <a href="#" class="c-blue fs-16 save hidden">Save</a>
+              </div>
+              <div class="d-flex">
+                <button
+                  type="submit"
+                  class="btn-shape save-info btn-pad bg-blue c-white rad-6 fs-14"
+                >
+                  Save Information
+                </button>
+              </div>
+            </form>
+          </div>
+          <!--End General Info-->
+
+          <!--Start Security Info-->
+          <div class="card security-info pad-15 bg-white rad-10">
+            <h2 class="mb-10">Security Info</h2>
+            <p class="c-grey fs-14 mb-15">
+              Security Information About Your Account
+            </p>
+
+            <form action="/settings/security-info" method="post">
+              <input type="hidden" name="userId" value="<%= user._id %>" />
+              <div class="box flex-between align-c pb-20">
+                <div>
+                  <span class="d-block fs-16">Password</span>
+                  <!--Use Userinfo object to get the last time password updated and pass it in the span-->
+                  <span class="d-block c-grey fs-12 mt-5"
+                    >Last Change On <%= new
+                    Date(userinfo.passwordUpdatedAt).toLocaleString('en-GB', {
+                    year: 'numeric', month: '2-digit', day: '2-digit', hour:
+                    '2-digit', minute: '2-digit' }).replace(',', '') %></span
+                  >
+                </div>
+                <a href="#" class="button btn-shape bg-blue c-white rad-6 fs-14"
+                  >Change</a
+                >
+
+                <button
+                  type="submit"
+                  class="button btn-shape bg-blue c-white rad-6 fs-14 save hidden"
+                >
+                  Save
+                </button>
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Please enter new password"
+                  class="rad-6 pad-10 mt-10 hidden"
+                />
+              </div>
+            </form>
+
+            <div class="box flex-between align-c mt-20 pb-20">
+              <div>
+                <span class="d-block fs-16">Two-Factor Authentication</span>
+                <span class="d-block c-grey fs-12 mt-5"
+                  >Enable/Disable The Feature</span
+                >
+              </div>
+              <label>
+                <input type="checkbox" class="toggle-checkbox" />
+                <div class="toggle-switch p-relative"></div>
+              </label>
+            </div>
+
+            <div class="box flex-between align-c mt-20 pb-20">
+              <div>
+                <span class="d-block fs-16">Devices</span>
+                <span class="d-block c-grey fs-12 mt-5"
+                  >Check The Login Devices List</span
+                >
+              </div>
+              <a href="#" class="btn-shape bg-eee c-black rad-6 fs-14"
+                >Devices</a
+              >
+            </div>
+          </div>
+          <!--End Security Info-->
+
+          <!--Start Social info-->
+          <div class="card social-info pad-15 bg-white rad-10">
+            <h2 class="mb-10">Social Info</h2>
+            <p class="c-grey fs-14 mb-15">Social Media Information</p>
+
+            <div class="box d-flex align-c rad-6 mb-20">
+              <i class="fa-brands fa-twitter felx-center c-grey"></i>
+              <input type="text" placeholder="Twitter Username" class="" />
+            </div>
+
+            <div class="box d-flex align-c rad-6 mb-20">
+              <i class="fa-brands fa-linkedin felx-center c-grey"></i>
+              <input type="text" placeholder="Linkedin Username" class="" />
+            </div>
+
+            <div class="box d-flex align-c rad-6 mb-20">
+              <i class="fa-brands fa-youtube felx-center c-grey"></i>
+              <input type="text" placeholder="Youtube Username" class="" />
+            </div>
+
+            <div class="box d-flex align-c rad-6 mb-20">
+              <i class="fa-brands fa-facebook felx-center c-grey"></i>
+              <input type="text" placeholder="Facebook Username" class="" />
+            </div>
+          </div>
+          <!--End Social info-->
+
+          <!--Start Widgets-->
+          <div class="card widgets pad-15 bg-white rad-10">
+            <h2 class="mb-10">Widgets Control</h2>
+            <p class="c-grey fs-14 mb-15">Show/Hide Widgets</p>
+
+            <div class="check d-flex align-c mb-15">
+              <input type="checkbox" id="one" checked />
+              <label for="one" class="fs-16 p-relative">Quick Draft</label>
+            </div>
+
+            <div class="check d-flex align-c mb-15">
+              <input type="checkbox" id="two" checked />
+              <label for="two" class="fs-16 p-relative">Yearly Targets</label>
+            </div>
+
+            <div class="check d-flex align-c mb-15">
+              <input type="checkbox" id="three" checked />
+              <label for="three" class="fs-16 p-relative"
+                >Tickets Statistics</label
+              >
+            </div>
+
+            <div class="check d-flex align-c mb-15">
+              <input type="checkbox" id="four" checked />
+              <label for="four" class="fs-16 p-relative">Latest News</label>
+            </div>
+
+            <div class="check d-flex align-c mb-15">
+              <input type="checkbox" id="five" />
+              <label for="five" class="fs-16 p-relative">Latest Tasks</label>
+            </div>
+
+            <div class="check d-flex align-c mb-15">
+              <input type="checkbox" id="six" checked />
+              <label for="six" class="fs-16 p-relative">Top Search Items</label>
+            </div>
+          </div>
+          <!--End Widgets-->
+
+          <!--Start Backup Manager-->
+          <div class="card backup-manager pad-15 bg-white rad-10">
+            <h2 class="mb-10">Backup Manager</h2>
+            <p class="c-grey fs-14 mb-20">Control Backup Time And Location</p>
+
+            <div class="radios">
+              <div class="d-flex align-c mb-20">
+                <input type="radio" name="frequently" id="daily" />
+                <label for="daily" class="p-relative fs-16">Daily</label>
+              </div>
+
+              <div class="d-flex align-c mb-20">
+                <input type="radio" name="frequently" id="weekly" />
+                <label for="weekly" class="p-relative fs-16">Weekly</label>
+              </div>
+
+              <div class="d-flex align-c">
+                <input type="radio" name="frequently" id="monthly" />
+                <label for="monthly" class="p-relative fs-16">Monthly</label>
+              </div>
+            </div>
+
+            <div class="flex-between mt-20 gap-20">
+              <input type="radio" name="server" id="server-one" />
+              <div class="d-flex txt-c">
+                <label for="server-one">
+                  <i class="fa-solid fa-server fs-20 mb-15"></i>
+                  <span class="d-block fs-20">Megaman</span>
+                </label>
+              </div>
+
+              <input type="radio" name="server" id="server-two" checked />
+              <div class="d-flex txt-c">
+                <label for="server-two">
+                  <i class="fa-solid fa-server fs-20 mb-15"></i>
+                  <span class="d-block fs-20">Ahmed</span>
+                </label>
+              </div>
+
+              <input type="radio" name="server" id="server-three" />
+              <div class="d-flex txt-c">
+                <label for="server-three">
+                  <i class="fa-solid fa-server fs-20 mb-15"></i>
+                  <span class="d-block fs-20">Megaman</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <!--End Backup Manager-->
+        </div>
+      </div>
+      <!--End Content-->
+    </div>
+    <script src="JS/main.js"></script>
+    <script src="JS/settings.js"></script>
+    <script src="JS/dark-mode.js"></script>
+  </body>
+</html>

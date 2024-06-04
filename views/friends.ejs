@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./component/head.ejs") %>
+  <body>
+    <div class="page friends d-flex">
+      <!--Start Side Bar-->
+      <%- include("./component/nav.ejs") %>
+      <!--End Side Bar-->
+
+      <!--Start Content-->
+
+      <div class="content full-width">
+        <%- include("./component/header.ejs") %>
+
+        <h1 class="p-relative">Friends</h1>
+
+        <div class="cards-250 d-grid gap-20">
+          <!--Start Card-->
+          <div class="card bg-white p-relative rad-10 pad-20">
+            <div class="card-icons d-flex">
+              <a href="#" class="icon bg-eee rad-half c-grey">
+                <i class="fa-solid fa-phone"></i>
+              </a>
+              <a href="#" class="icon bg-eee rad-half c-grey">
+                <i class="fa-regular fa-envelope"></i>
+              </a>
+            </div>
+            <header class="pb-20">
+              <div class="info txt-c">
+                <img src="img/avatar.jpg" alt="avatar" class="rad-half" />
+                <h3 class="fs-16 d-block mt-15">Ahmed Awad</h3>
+                <span class="c-grey fs-12 d-block mt-5">Web Developer</span>
+              </div>
+            </header>
+
+            <main class="pb-10 mt-15 p-relative">
+              <div class="row d-flex gap-10 align-c mb-10 fs-14">
+                <i class="fa-regular fa-face-smile"></i>
+                <span>99 Friends</span>
+              </div>
+
+              <div class="row d-flex gap-10 align-c fs-14 mb-10">
+                <i class="fa-solid fa-diagram-project"></i>
+                <span>15 Projects</span>
+              </div>
+
+              <div class="row d-flex gap-10 align-c fs-14 mb-10">
+                <i class="fa-regular fa-newspaper"></i>
+                <span>99 Articles</span>
+              </div>
+
+              <span class="vip">VIP</span>
+            </main>
+
+            <footer class="mt-15 fs-12 c-grey flex-between align-c">
+              <span>Joined Yesterday</span>
+              <div>
+                <a href="profile.html" class="profile">
+                  <span class="btn-shape bg-blue c-white rad-6">Profile</span>
+                </a>
+                <a href="#" class="delete">
+                  <span class="btn-shape bg-red c-white rad-6">Remove</span>
+                </a>
+              </div>
+            </footer>
+          </div>
+          <!--End Card-->
+
+          <!--Start Card-->
+          <div class="card bg-white p-relative rad-10 pad-20">
+            <div class="card-icons d-flex">
+              <a href="#" class="icon bg-eee rad-half c-grey">
+                <i class="fa-solid fa-phone"></i>
+              </a>
+              <a href="#" class="icon bg-eee rad-half c-grey">
+                <i class="fa-regular fa-envelope"></i>
+              </a>
+            </div>
+            <header class="pb-20">
+              <div class="info txt-c">
+                <img src="img/team-01.png" alt="team-01" class="rad-half" />
+                <h3 class="fs-16 d-block mt-15">Osama Ali</h3>
+                <span class="c-grey fs-12 d-block mt-5">IOS Developer</span>
+              </div>
+            </header>
+
+            <main class="pb-10 mt-15 p-relative">
+              <div class="row d-flex gap-10 align-c mb-10 fs-14">
+                <i class="fa-regular fa-face-smile"></i>
+                <span>91 Friends</span>
+              </div>
+
+              <div class="row d-flex gap-10 align-c fs-14 mb-10">
+                <i class="fa-solid fa-diagram-project"></i>
+                <span>23 Projects</span>
+              </div>
+
+              <div class="row d-flex gap-10 align-c fs-14 mb-10">
+                <i class="fa-regular fa-newspaper"></i>
+                <span>96 Articles</span>
+              </div>
+            </main>
+
+            <footer class="mt-15 fs-12 c-grey flex-between align-c">
+              <span>Joined 02/10/2023</span>
+              <div>
+                <a href="profile.html" class="profile">
+                  <span class="btn-shape bg-blue c-white rad-6">Profile</span>
+                </a>
+                <a href="#" class="delete">
+                  <span class="btn-shape bg-red c-white rad-6">Remove</span>
+                </a>
+              </div>
+            </footer>
+          </div>
+          <!--End Card-->
+
+          <!--Start Card-->
+          <div class="card bg-white p-relative rad-10 pad-20">
+            <div class="card-icons d-flex">
+              <a href="#" class="icon bg-eee rad-half c-grey">
+                <i class="fa-solid fa-phone"></i>
+              </a>
+              <a href="#" class="icon bg-eee rad-half c-grey">
+                <i class="fa-regular fa-envelope"></i>
+              </a>
+            </div>
+            <header class="pb-20">
+              <div class="info txt-c">
+                <img src="img/team-02.png" alt="team-02" class="rad-half" />
+                <h3 class="fs-16 d-block mt-15">Carolina Smith</h3>
+                <span class="c-grey fs-12 d-block mt-5">Flutter Developer</span>
+              </div>
+            </header>
+
+            <main class="pb-10 mt-15 p-relative">
+              <div class="row d-flex gap-10 align-c mb-10 fs-14">
+                <i class="fa-regular fa-face-smile"></i>
+                <span>91 Friends</span>
+              </div>
+
+              <div class="row d-flex gap-10 align-c fs-14 mb-10">
+                <i class="fa-solid fa-diagram-project"></i>
+                <span>23 Projects</span>
+              </div>
+
+              <div class="row d-flex gap-10 align-c fs-14 mb-10">
+                <i class="fa-regular fa-newspaper"></i>
+                <span>96 Articles</span>
+              </div>
+            </main>
+
+            <footer class="mt-15 fs-12 c-grey flex-between align-c">
+              <span>Joined 02/10/2023</span>
+              <div>
+                <a href="profile.html" class="profile">
+                  <span class="btn-shape bg-blue c-white rad-6">Profile</span>
+                </a>
+                <a href="#" class="delete">
+                  <span class="btn-shape bg-red c-white rad-6">Remove</span>
+                </a>
+              </div>
+            </footer>
+          </div>
+          <!--End Card-->
+
+          <!--Start Card-->
+          <div class="card bg-white p-relative rad-10 pad-20">
+            <div class="card-icons d-flex">
+              <a href="#" class="icon bg-eee rad-half c-grey">
+                <i class="fa-solid fa-phone"></i>
+              </a>
+              <a href="#" class="icon bg-eee rad-half c-grey">
+                <i class="fa-regular fa-envelope"></i>
+              </a>
+            </div>
+            <header class="pb-20">
+              <div class="info txt-c">
+                <img src="img/team-01.png" alt="team-01" class="rad-half" />
+                <h3 class="fs-16 d-block mt-15">Tom Smith</h3>
+                <span class="c-grey fs-12 d-block mt-5">Flutter Developer</span>
+              </div>
+            </header>
+
+            <main class="pb-10 mt-15 p-relative">
+              <div class="row d-flex gap-10 align-c mb-10 fs-14">
+                <i class="fa-regular fa-face-smile"></i>
+                <span>91 Friends</span>
+              </div>
+
+              <div class="row d-flex gap-10 align-c fs-14 mb-10">
+                <i class="fa-solid fa-diagram-project"></i>
+                <span>23 Projects</span>
+              </div>
+
+              <div class="row d-flex gap-10 align-c fs-14 mb-10">
+                <i class="fa-regular fa-newspaper"></i>
+                <span>96 Articles</span>
+              </div>
+
+              <span class="vip">VIP</span>
+            </main>
+
+            <footer class="mt-15 fs-12 c-grey flex-between align-c">
+              <span>Joined 02/10/2023</span>
+              <div>
+                <a href="profile.html" class="profile">
+                  <span class="btn-shape bg-blue c-white rad-6">Profile</span>
+                </a>
+                <a href="#" class="delete">
+                  <span class="btn-shape bg-red c-white rad-6">Remove</span>
+                </a>
+              </div>
+            </footer>
+          </div>
+          <!--End Card-->
+
+          <!--Start Card-->
+          <div class="card bg-white p-relative rad-10 pad-20">
+            <div class="card-icons d-flex">
+              <a href="#" class="icon bg-eee rad-half c-grey">
+                <i class="fa-solid fa-phone"></i>
+              </a>
+              <a href="#" class="icon bg-eee rad-half c-grey">
+                <i class="fa-regular fa-envelope"></i>
+              </a>
+            </div>
+            <header class="pb-20">
+              <div class="info txt-c">
+                <img src="img/team-03.png" alt="team-03" class="rad-half" />
+                <h3 class="fs-16 d-block mt-15">Sam Andrew</h3>
+                <span class="c-grey fs-12 d-block mt-5"
+                  >Full Stack Developer</span
+                >
+              </div>
+            </header>
+
+            <main class="pb-10 mt-15 p-relative">
+              <div class="row d-flex gap-10 align-c mb-10 fs-14">
+                <i class="fa-regular fa-face-smile"></i>
+                <span>12 Friends</span>
+              </div>
+
+              <div class="row d-flex gap-10 align-c fs-14 mb-10">
+                <i class="fa-solid fa-diagram-project"></i>
+                <span>22 Projects</span>
+              </div>
+
+              <div class="row d-flex gap-10 align-c fs-14 mb-10">
+                <i class="fa-regular fa-newspaper"></i>
+                <span>4 Articles</span>
+              </div>
+
+              <span class="vip">VIP</span>
+            </main>
+
+            <footer class="mt-15 fs-12 c-grey flex-between align-c">
+              <span>Joined 02/10/2023</span>
+              <div>
+                <a href="profile.html" class="profile">
+                  <span class="btn-shape bg-blue c-white rad-6">Profile</span>
+                </a>
+                <a href="#" class="delete">
+                  <span class="btn-shape bg-red c-white rad-6">Remove</span>
+                </a>
+              </div>
+            </footer>
+          </div>
+          <!--End Card-->
+
+          <!--Start Card-->
+          <div class="card bg-white p-relative rad-10 pad-20">
+            <div class="card-icons d-flex">
+              <a href="#" class="icon bg-eee rad-half c-grey">
+                <i class="fa-solid fa-phone"></i>
+              </a>
+              <a href="#" class="icon bg-eee rad-half c-grey">
+                <i class="fa-regular fa-envelope"></i>
+              </a>
+            </div>
+            <header class="pb-20">
+              <div class="info txt-c">
+                <img src="img/team-05.png" alt="team-05" class="rad-half" />
+                <h3 class="fs-16 d-block mt-15">Menna Mohamed</h3>
+                <span class="c-grey fs-12 d-block mt-5">Designer</span>
+              </div>
+            </header>
+
+            <main class="pb-10 mt-15 p-relative">
+              <div class="row d-flex gap-10 align-c mb-10 fs-14">
+                <i class="fa-regular fa-face-smile"></i>
+                <span>43 Friends</span>
+              </div>
+
+              <div class="row d-flex gap-10 align-c fs-14 mb-10">
+                <i class="fa-solid fa-diagram-project"></i>
+                <span>212 Projects</span>
+              </div>
+
+              <div class="row d-flex gap-10 align-c fs-14 mb-10">
+                <i class="fa-regular fa-newspaper"></i>
+                <span>54 Articles</span>
+              </div>
+
+              <span class="vip">VIP</span>
+            </main>
+
+            <footer class="mt-15 fs-12 c-grey flex-between align-c">
+              <span>Joined 02/10/2023</span>
+              <div>
+                <a href="profile.html" class="profile">
+                  <span class="btn-shape bg-blue c-white rad-6">Profile</span>
+                </a>
+                <a href="#" class="delete">
+                  <span class="btn-shape bg-red c-white rad-6">Remove</span>
+                </a>
+              </div>
+            </footer>
+          </div>
+          <!--End Card-->
+        </div>
+      </div>
+      <!--End Content-->
+    </div>
+    <script src="JS/main.js"></script>
+    <script src="JS/dark-mode.js"></script>
+  </body>
+</html>

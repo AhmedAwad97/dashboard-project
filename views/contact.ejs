@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./component/head.ejs") %>
+  <body>
+    <div class="page contacts d-flex">
+      <!--Start Side Bar-->
+      <%- include("./component/nav.ejs") %>
+      <!--End Side Bar-->
+
+      <!--Start Content-->
+
+      <div class="content full-width p-relative">
+        <%- include("./component/header.ejs") %>
+
+        <h1 class="p-relative">Contact Form</h1>
+        <form action="/contact-form/submit" id="form" method="post">
+          <h3 class="txt-c mb-20 fs-16 c-grey">Get in touch</h3>
+          <div class="name-invalid"></div>
+          <input type="text" placeholder="Name" name="username" id="name" />
+          <input
+            type="email"
+            placeholder="Email address"
+            id="email"
+            name="email"
+            required
+          />
+          <input
+            type="text"
+            placeholder="Subject"
+            name="subject"
+            id="subject"
+          />
+          <div class="content-invalid"></div>
+          <textarea
+            name="content"
+            id=""
+            placeholder="What you want to tell us?"
+          ></textarea>
+
+          <div class="btn-div d-flex">
+            <button
+              type="submit"
+              class="btn-pad btn-shape bg-blue c-white fs-16"
+              id="submit"
+            >
+              Send
+            </button>
+          </div>
+        </form>
+
+        <div class="pop-up">
+          <i class="fa-solid fa-xmark"></i>
+          <p>Your Message has been sent :&rpar;</p>
+          <button class="btn-pad btn-shape bg-blue c-white fs-14 d-block">
+            Close
+          </button>
+        </div>
+      </div>
+      <!--End Content-->
+    </div>
+    <script src="JS/main.js"></script>
+    <script src="JS/contact.js"></script>
+    <script src="JS/dark-mode.js"></script>
+  </body>
+</html>
