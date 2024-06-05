@@ -1,8 +1,14 @@
 Hello and welcome to this Project, below i show Installing instructions:
 1- Clone the repository to your local machine using the following command: git clone https://github.com/AhmedAwad97/dashboard-project.git
-2- Navigate to the project directory: cd Project Dashboard
+2- Navigate to the project directory where you want to install your project: cd Project Dashboard
 3- Make sure you have Node.js and MongoDB installed on your system before the following instructions:
-4- Install the required dependencies using npm: npm install 
+4- Install the required dependencies using npm: 
+npm install 
+npm install express
+npm install mongoose
+npm install body-parser
+npm install morgan
+
 5- start the server: node app.js or nodemon app.js
 6- Once the server is running, access the application in your web browser by navigating to: localhost:3000
 
