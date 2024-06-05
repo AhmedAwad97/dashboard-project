@@ -21,12 +21,14 @@ function getTotal() {
   discount.addEventListener("keyup", updateTotal);
 }
 
+//update the total price based on the price, taxes, ads and discount values
 function updateTotal() {
   let priceValue = parseFloat(price.value) || 0;
   let taxesValue = parseFloat(taxes.value) || 0;
   let adsValue = parseFloat(ads.value) || 0;
   let discountValue = parseFloat(discount.value) || 0;
 
+  //check if the price value isnt empty
   if (price.value != "") {
     let totalPrice = priceValue + taxesValue + adsValue - discountValue;
     total.innerHTML = `${totalPrice.toFixed(2)}`;
@@ -41,6 +43,8 @@ getTotal();
 //****************************************************************** */
 //creat product
 let products;
+//check if the local storage has products values, if exists return it as JS object
+// if not then creat a new product array
 if (localStorage.product != null) {
   products = JSON.parse(localStorage.getItem("product"));
 } else {
@@ -62,6 +66,8 @@ function submitClickHandler() {
     isUpdateMode = false;
     clearData();
   } else {
+    //check if the neccessary inputs arent empty, if so, creat a new object and store the input values
+    // push the new object into products array to store it to local storage later
     if (title.value != "" && price.value != "" && category.value != "") {
       let newProduct = {
         title: title.value,
@@ -104,7 +110,11 @@ function clearData() {
 //read
 function showData(products) {
   getTotal();
+  //clear the body of the table before creating,
+  //as every time we add a new product, we creat rows with the products, to avoid duplication
   tbody.innerHTML = "";
+  //iterate over the products array and for each object,
+  //we create a new row <tr>, each <tr> has <td> for each properties of the object
   for (let i = 0; i < products.length; i++) {
     let row = document.createElement("tr");
 
@@ -153,6 +163,8 @@ function showData(products) {
     categoryElement.appendChild(categoryContent);
     row.appendChild(categoryElement);
 
+    //in the update and delete button we will set data-index
+    //and store the index of each object to can reference it for update and delete
     let updateElement = document.createElement("td");
     updateElement.innerHTML = `<button class="btn bg-green update c-white rad-6" data-index="${i}"> Update </button>`;
     row.appendChild(updateElement);
@@ -160,7 +172,7 @@ function showData(products) {
     let dele = document.createElement("td");
     dele.innerHTML = `<button class="btn bg-red delete c-white rad-6" data-index="${i}"> Delete </button>`;
     row.appendChild(dele);
-
+    //append the inserted row into the body of the table
     tbody.appendChild(row);
   }
 }
@@ -170,19 +182,21 @@ showData(products);
 document.addEventListener("click", function (event) {
   if (event.target.classList.contains("delete")) {
     let index = event.target.getAttribute("data-index");
-    products.splice(index, 1);
-    event.target.parentNode.parentNode.remove();
-    saveToLocalStorage();
-    showData(products);
-    updateDeleteAllButtonVisibility();
+    products.splice(index, 1); //delete the object at the specified index from the products array of objects
+    event.target.parentNode.parentNode.remove(); // delete the entrie row that has the button from html
+    saveToLocalStorage(); //update the products array of object to local storage so when refresh the page, we see the changes
+    showData(products); //we show the data fron the local storage when refresh the page and when update/delete row
+    updateDeleteAllButtonVisibility(); // decrement the counter in the delete all button
   }
 });
 //****************************************************************** */
 //delete All
 function updateDeleteAllButtonVisibility() {
   if (products.length === 0) {
+    //if theres no product, hide the delete all button
     deleteAllButton.style.display = "none";
   } else {
+    //otherwise, show the button and set the counter to the number of products
     deleteAllButton.style.display = "block";
     deleteAllButton.innerHTML = `Delete All (${products.length})`;
     deleteAllButton.style.color = "white";
@@ -191,18 +205,18 @@ function updateDeleteAllButtonVisibility() {
 updateDeleteAllButtonVisibility();
 
 deleteAllButton.addEventListener("click", () => {
-  products = [];
+  products = []; //set the products to empty array,
+  //save it to local storage, show the data in html page and update the delete all button
   saveToLocalStorage();
   showData(products);
   updateDeleteAllButtonVisibility();
 });
 //****************************************************************** */
 //update
-//update
 function update() {
   document.addEventListener("click", function (event) {
     if (event.target.classList.contains("update")) {
-      let index = event.target.getAttribute("data-index");
+      let index = event.target.getAttribute("data-index"); //get the index of the specified object that contains the row's data
       title.value = products[index].title;
       price.value = products[index].price;
       taxes.value = products[index].taxes;
@@ -219,6 +233,7 @@ function update() {
       submitBtn.style.backgroundColor = "#0d69d5";
       submitBtn.style.color = "white";
       scroll({
+        //go to top of page with smooth scroll
         top: 0,
         behavior: "smooth",
       });
@@ -228,35 +243,6 @@ function update() {
 update();
 
 //****************************************************************** */
-//search
-// let searchMode = "";
-// let results = [];
-// let searchInput = document.querySelector("input[type='search']");
-// let searchTitle = document.querySelector(".search-title");
-// let searchCategory = document.querySelector(".search-category");
-
-// searchTitle.addEventListener("click", () => {
-//   searchMode = "title";
-//   search();
-// });
-
-// searchCategory.addEventListener("click", () => {
-//   searchMode = "category";
-//   search();
-// });
-
-// function search() {
-//   results = [];
-//   let searchValue = searchInput.value;
-//   for (let i = 0; i < products.length; i++) {
-//     if (products[i][searchMode] === searchValue) {
-//       results.push(products[i]);
-//     }
-//   }
-//   showData(results);
-//   searchInput.value = "";
-// }
-
 let searchMode = "title";
 let results = [];
 let searchInput = document.querySelector(".search-products");
@@ -278,6 +264,7 @@ searchCategory.addEventListener("click", () => {
 function searchData(value) {
   results = []; // Clear the previous search results
   for (let i = 0; i < products.length; i++) {
+    //check if the products object contains the value in search mode variable (title or category)
     if (products[i][searchMode].toLowerCase().includes(value.toLowerCase())) {
       results.push(products[i]);
     }

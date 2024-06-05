@@ -3,12 +3,18 @@
  * make a drop menu when clicking on the profile photo or the notification icon in the header section
  */
 let profilePic = document.querySelector("#profilePic");
+//
+// show/hide the profile content when click on the profile icon
+//
 profilePic.addEventListener("click", () => {
   document.querySelector(".profileContent").classList.toggle("visible");
   document.querySelector(".notificationContent").classList.remove("visible");
 });
 
 let notificationIcon = document.querySelector(".notificationIcon");
+//
+// show/hide the notification content when click on the notification icon
+//
 notificationIcon.addEventListener("click", () => {
   document.querySelector(".notificationContent").classList.toggle("visible");
   document.querySelector(".profileContent").classList.remove("visible");
@@ -20,6 +26,8 @@ notificationIcon.addEventListener("click", () => {
 document.body.addEventListener("click", (event) => {
   let isProfilePicCliked = profilePic.contains(event.target);
   let isNotificationIconCliked = notificationIcon.contains(event.target);
+  //
+  //hide the profile content and notification content when click anyway on the page other than profile and notification icon
   if (!isProfilePicCliked && !isNotificationIconCliked) {
     document.querySelector(".profileContent").classList.remove("visible");
     document.querySelector(".notificationContent").classList.remove("visible");
@@ -36,13 +44,15 @@ trashcan.forEach((icon) => {
   icon.addEventListener("click", (event) => {
     event.preventDefault();
     const taskId = icon.dataset.doc;
-
+    // in case of the selected row has data attribute with the id of tasks collection in the db
     if (taskId) {
       const endpoint = `/dashboard/${taskId}`;
+      // fetch the endpoint and set delete request to server to delete routes it to controller to delete it from db
       fetch(endpoint, { method: "DELETE" })
         .then((response) => response.json())
         .then((result) => {
           if (result.success) {
+            //if the row deleted from db, delete it from html
             icon.closest(".tasks-row").remove();
           } else {
             console.log("Error deleting task");
@@ -52,6 +62,7 @@ trashcan.forEach((icon) => {
           console.log(err);
         });
     } else {
+      //remove the selected row in case of the row is static (not saved/retrieved from server)
       icon.parentElement.remove();
     }
   });
@@ -69,6 +80,7 @@ like.addEventListener("click", (event) => {
   event.preventDefault();
   const postId = like.parentElement.parentElement.parentElement.dataset.postId;
   const endpoint = `/dashboard/likes/${postId}`;
+  //fetch the endpoint and send a post request to the backend to handle it through controller and update the db
   fetch(endpoint, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -76,9 +88,11 @@ like.addEventListener("click", (event) => {
   })
     .then((response) => response.json())
     .then((result) => {
+      //if the backend send success respond, it will send the like counts along with it, use it to update the counter
       if (result.success) {
         const likeCounter = like.nextElementSibling;
         likeCounter.textContent = `${result.likeCount} likes`;
+        // if the result is unlike, remove the styling of like, otherwise add like's style
         if (result.unliked) {
           like.querySelector("i").classList.remove("fa-solid");
           like.querySelector("i").classList.remove("liked");
@@ -145,6 +159,7 @@ checkedItem.forEach((item) => {
     width: fit-content;
     margin-right: 5px;
   `;
+    // add the checked item to the schoosen item div and remove it from the checked item div
     choosenItems.appendChild(span);
     item.parentElement.parentElement.remove();
   });

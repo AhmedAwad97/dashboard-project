@@ -18,7 +18,7 @@ contactForm.addEventListener("submit", function (e) {
 
   nameInvalidDiv.textContent = "";
   contentInvalidDiv.textContent = "";
-
+  //show error message if the input is empty
   if (emailInput.value !== "") {
     if (!isValidName) {
       nameInvalidDiv.textContent =
@@ -27,6 +27,7 @@ contactForm.addEventListener("submit", function (e) {
     if (!isValidMessage) {
       contentInvalidDiv.textContent = "*You Cant send an empty message";
     }
+    //save the form data into formData object and fetch it to send to the server
     if (isValidName && isValidMessage) {
       let formData = {
         username: userInput.value,
@@ -43,6 +44,8 @@ contactForm.addEventListener("submit", function (e) {
         .then((res) => res.json())
         .then((data) => {
           if (data.success) {
+            //if server return success, then show the pop up window
+            //indicating that data saved to db and hide the form section
             document.querySelector(".pop-up").style.display = "flex";
             contactForm.style.display = "none";
           } else {

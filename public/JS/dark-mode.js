@@ -6,7 +6,7 @@ let pageSite = document.querySelectorAll(".page");
 /**
  * Add Event to toggle the dark class and store on local storage whether its in dark mode or no
  */
-if ((darkModeBtn, darkModeCheckBox)) {
+if (darkModeBtn && darkModeCheckBox) {
   darkModeBtn.addEventListener("click", () => {
     pageSite.forEach((page) => {
       page.classList.toggle("dark");
